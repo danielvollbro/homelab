@@ -16,3 +16,11 @@ module "talos_cluster" {
   network_dns_servers   = var.dns_servers
   network_nodes_configs = var.talos_node_configs
 }
+
+module "flux_bootstrap" {
+  source = "../../modules/platform/flux_bootstrap"
+
+  depends_on = [module.talos_cluster]
+
+  target_path = "gitops/flux/clusters/prod"
+}
