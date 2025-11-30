@@ -16,17 +16,17 @@ module "node_vm" {
   network_mac         = var.network_mac
 }
 
-data "talos_machine_configuration" "controlplane" {
+data "talos_machine_configuration" "this" {
   cluster_name     = var.cluster_name
   machine_type     = "controlplane"
   cluster_endpoint = "https://${var.cluster_vip}:6443"
-  machine_secrets  = var.node_machine_secrets.machine_secrets
-  talos_version    = "v1.11.5"
+  machine_secrets  = var.node_machine_secrets
+  talos_version    = var.cluster_talos_version
 }
 
-resource "talos_machine_configuration_apply" "controlplane" {
-  client_configuration        = var.node_machine_secrets.client_configuration
-  machine_configuration_input = data.talos_machine_configuration.controlplane.machine_configuration
+resource "talos_machine_configuration_apply" "this" {
+  client_configuration        = var.node_client_configuration
+  machine_configuration_input = data.talos_machine_configuration.this.machine_configuration
 
   node = var.network_ipaddress
 

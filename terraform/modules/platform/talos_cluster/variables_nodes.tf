@@ -13,12 +13,7 @@ variable "nodes_pve_node" {
   description = "The Proxmox VE node where the cluster nodes will be created."
 }
 
-variable "nodes_iso_file" {
-  type        = string
-  description = "The ISO file to use for the Talos nodes."
-}
-
-variable "nodes_machine_installer" {
-  type        = string
-  description = "The installer that will be used to install each machine."
+variable "nodes_extensions" {
+  type        = list(string)
+  description = "List of Talos system extensions to include in the nodes."
 }

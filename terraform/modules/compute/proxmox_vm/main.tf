@@ -1,4 +1,4 @@
-resource "proxmox_virtual_environment_vm" "talos_node" {
+resource "proxmox_virtual_environment_vm" "this" {
   vm_id           = var.vm_id
   name            = var.vm_name
   node_name       = var.vm_node

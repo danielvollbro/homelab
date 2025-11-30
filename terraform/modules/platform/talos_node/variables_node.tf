@@ -9,6 +9,13 @@ variable "node_machine_secrets" {
   sensitive   = true
 }
 
+variable "node_client_configuration" {
+  type        = any
+  description = "The Talos client configuration."
+  sensitive   = true
+}
+
 variable "node_machine_installer" {
-  type = string
+  type        = string
+  description = "The Talos machine installer image URL."
 }

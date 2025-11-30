@@ -1,8 +1,15 @@
-module "talos-iso" {
+module "talos_image" {
+  source = "../talos_image"
+
+  official_extensions = var.nodes_extensions
+  talos_version       = var.cluster_talos_version
+}
+
+module "talos_iso" {
   source = "../../compute/iso_file"
 
   node = "gryffindor"
-  url  = var.nodes_iso_file
+  url  = module.talos_image.download_iso_secureboot
 }
 
 resource "talos_machine_secrets" "this" {}
@@ -14,19 +21,21 @@ module "nodes" {
   vm_id       = var.nodes_vm_start_id + count.index
   vm_name     = "talos-vm-${count.index + 1}"
   vm_node     = var.nodes_pve_node
-  vm_iso_file = module.talos-iso.id
+  vm_iso_file = module.talos_iso.id
 
   network_ipaddress   = var.network_nodes_configs[tostring(count.index)]["ip"]
   network_mac         = var.network_nodes_configs[tostring(count.index)]["mac"]
   network_gateway     = var.network_gateway
   network_dns_servers = var.network_dns_servers
 
-  cluster_name = var.cluster_name
-  cluster_vip  = var.cluster_vip
+  cluster_name          = var.cluster_name
+  cluster_vip           = var.cluster_vip
+  cluster_talos_version = var.cluster_talos_version
 
-  node_hostname          = "talos-node-${count.index}"
-  node_machine_secrets   = talos_machine_secrets.this
-  node_machine_installer = var.nodes_machine_installer
+  node_hostname             = "talos-node-${count.index}"
+  node_machine_secrets      = talos_machine_secrets.this.machine_secrets
+  node_client_configuration = talos_machine_secrets.this.client_configuration
+  node_machine_installer    = module.talos_image.download_installer_secureboot
 }
 
 resource "talos_machine_bootstrap" "this" {
