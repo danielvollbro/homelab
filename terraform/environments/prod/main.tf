@@ -1,5 +1,5 @@
 module "talos-vms" {
-  source = "../../modules/compute/talos_cluster"
+  source = "../../modules/platform/talos_cluster"
 
   cluster_name = "prod-cluster"
   cluster_vip  = var.talos_cluster_vip

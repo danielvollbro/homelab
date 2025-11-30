@@ -1,70 +1,19 @@
-resource "proxmox_virtual_environment_vm" "talos_node" {
-  vm_id           = var.vm_id
-  name            = var.vm_name
-  node_name       = var.vm_node
-  on_boot         = var.vm_onboot
-  migrate         = true
-  stop_on_destroy = true
+module "node_vm" {
+  source = "../../compute/proxmox_vm"
 
-  machine = "q35"
-  bios    = "ovmf"
+  vm_id                = var.vm_id
+  vm_name              = var.node_hostname
+  vm_node              = var.vm_node
+  vm_onboot            = var.vm_onboot
+  vm_iso_file          = var.vm_iso_file
+  res_cpu_cores        = var.res_cpu_cores
+  res_dedicated_memory = var.res_dedicated_memory
+  res_disc_size        = var.res_disc_size
 
-  boot_order = ["virtio0", "ide3", "net0"]
-
-  agent {
-    enabled = true
-  }
-
-  cpu {
-    cores = var.res_cpu_cores
-    type  = "x86-64-v2-AES"
-  }
-
-  memory {
-    dedicated = var.res_dedicated_memory
-  }
-
-  initialization {
-    datastore_id = "WD3TB"
-
-    ip_config {
-      ipv4 {
-        address = "${var.network_ipaddress}/24"
-        gateway = var.network_gateway
-      }
-    }
-
-    dns {
-      servers = var.network_dns_servers
-    }
-  }
-
-  network_device {
-    bridge      = "vmbr0"
-    mac_address = var.network_mac
-  }
-
-  cdrom {
-    file_id = var.vm_iso_file
-  }
-
-  tpm_state {
-    datastore_id = "WD3TB"
-  }
-
-  efi_disk {
-    datastore_id      = "WD3TB"
-    type              = "4m"
-    file_format       = "raw"
-    pre_enrolled_keys = false
-  }
-
-  disk {
-    datastore_id = "WD3TB"
-    interface    = "virtio0"
-    size         = var.res_disc_size
-    file_format  = "raw"
-  }
+  network_ipaddress   = var.network_ipaddress
+  network_gateway     = var.network_gateway
+  network_dns_servers = var.network_dns_servers
+  network_mac         = var.network_mac
 }
 
 data "talos_machine_configuration" "controlplane" {
@@ -138,5 +87,5 @@ resource "talos_machine_configuration_apply" "controlplane" {
     })
   ]
 
-  depends_on = [proxmox_virtual_environment_vm.talos_node]
+  depends_on = [module.node_vm]
 }

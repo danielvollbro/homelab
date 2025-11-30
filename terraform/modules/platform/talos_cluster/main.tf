@@ -1,5 +1,5 @@
 module "talos-iso" {
-  source = "../iso_file"
+  source = "../../compute/iso_file"
 
   node = "gryffindor"
   url  = var.nodes_iso_file
