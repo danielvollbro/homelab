@@ -57,6 +57,8 @@ data "talos_cluster_health" "this" {
   timeouts = {
     read = "10m"
   }
+
+  skip_kubernetes_checks = true
 }
 
 resource "talos_cluster_kubeconfig" "this" {

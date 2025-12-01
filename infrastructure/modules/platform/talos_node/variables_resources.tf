@@ -6,7 +6,7 @@ variable "res_cpu_cores" {
 
 variable "res_dedicated_memory" {
   type        = number
-  default     = 2048
+  default     = 4096
   description = "The amount of dedicated memory (in MB) that will be allocated to the node."
 }
 

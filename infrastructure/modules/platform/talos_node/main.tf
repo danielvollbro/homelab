@@ -83,6 +83,16 @@ resource "talos_machine_configuration_apply" "this" {
       }
       cluster = {
         allowSchedulingOnControlPlanes = true
+
+        proxy = {
+          disabled = true
+        }
+
+        network = {
+          cni = {
+            name = "none"
+          }
+        }
       }
     })
   ]

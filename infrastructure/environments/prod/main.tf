@@ -17,10 +17,25 @@ module "talos_cluster" {
   network_nodes_configs = var.talos_node_configs
 }
 
+module "cilium_bootstrap" {
+  source = "../../modules/platform/cilium_bootstrap"
+
+  cluster_vip    = var.talos_cluster_vip
+  cilium_version = "1.18.4"
+
+  depends_on = [module.talos_cluster]
+}
+
+resource "time_sleep" "wait_for_network" {
+  depends_on = [module.cilium_bootstrap]
+
+  create_duration = "60s"
+}
+
 module "flux_bootstrap" {
   source = "../../modules/platform/flux_bootstrap"
 
-  depends_on = [module.talos_cluster]
+  depends_on = [time_sleep.wait_for_network]
 
   target_path = "gitops/flux/clusters/prod"
 }
