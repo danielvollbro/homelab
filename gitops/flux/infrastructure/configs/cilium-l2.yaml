@@ -1,0 +1,32 @@
+apiVersion: cilium.io/v2alpha1
+kind: CiliumL2AnnouncementPolicy
+metadata:
+    name: prod-l2-policy
+    namespace: kube-system
+spec:
+    #ENC[AES256_GCM,data:V7kjaIlihamqgCcO52Ed9GlqnTGHVrt+psoZsuzry9+t9cWc6xpc+f9hNToYe4/wh0fmJbwHoQ==,iv:kUnzHIuWMyQVKYKuBp4bnMUEFGRqWFUOxF9zKJXXh4s=,tag:Z8EqBkMdbjQNabDF0X30sw==,type:comment]
+    externalIPs: ENC[AES256_GCM,data:GcyTaA==,iv:n7+nHjxS12Jb+/BBSKu3+IPNRJfq3fdoiYu600ouV7E=,tag:7HpZq1wQHm79ETGwLWvKkg==,type:bool]
+    loadBalancerIPs: ENC[AES256_GCM,data:TUawqA==,iv:bjlDc6vJqp9TtCGbuGokw2rKYcDA0FH4xjZHd77xjZg=,tag:lMojoi5+ayeflSqx06Oq9w==,type:bool]
+    #ENC[AES256_GCM,data:Lb/bQoLcPbZfNvE4aYqRCItjAE9S0cNKBCNs3CfCa2ix+JC79J/w9g==,iv:TIwXQTfAFcrlBpuftusLo9lbcVeNtBoSNApJvyRCGs8=,tag:RYLDn0btqqQFCZmsPUwbeQ==,type:comment]
+    interfaces:
+        - ENC[AES256_GCM,data:uW8ijmE=,iv:4gD4AygqEVALMPLOHC+ERouLcvGZrBC1Ap0QhkeTt/w=,tag:sQYhECNCX5y5gE9+n515Kg==,type:str]
+    #ENC[AES256_GCM,data:93/sS1GD0l7Q8/Ew2SJ1GbQ81s+RCMSU4h/hqC0oNjcVwoCFAGHWvgzpa1LeNIokFII3Utt1uXL+nBn2xILcHfMBpQ==,iv:OlxWCSKYSrpL9pRn3txuOdjW4g0J601iAhVnG9EVJn0=,tag:0QTYsh414FenXXsvfXpAAg==,type:comment]
+    nodeSelector:
+        matchExpressions:
+            - key: ENC[AES256_GCM,data:6db+dWC6xTS7lji+wes/CC0Fxe2cUyjJj8TnfA+Kz0idRpEZEA==,iv:cL9sq4v7+NlwGBlaXD3DFJ5AP6iAFDGffkedIXDY8A8=,tag:ByQP94faiMl/Bdd640q6GQ==,type:str]
+              operator: ENC[AES256_GCM,data:vFf4JVwX,iv:yc8EH23hoIJ/ebm2VtKQKnJ87JKDX2FE4oStPRFYQOE=,tag:JAi0s/MAvcm5VuS+xCVzUA==,type:str]
+sops:
+    age:
+        - recipient: age1f70m834v0d5scfgvur7kakl06dvgdctafh64xc2p3xssu2msr9tq3pyfe7
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBna3l2ZWhPaDczeUNiVjFh
+            Mm4yWXZGWkFOZi9xWnlwSUhiaVhkZ1dMRHpvClN0SnM0RlpXY1gyZkRmMnJLZE9Y
+            ZmdURUF4Tk1zdy9ISmJ3RkNGVTFxbDgKLS0tIEJHSTY2RG9HeTl5ZFpGQ1E1Qmpt
+            ZEpXZDBGNWowR1pUUHAzOGk5SFFlUUkK8wzSOMlmOP9306/b7Kkmn6YtnMNma7xC
+            UjlpkNwFkxv6DHcdWJ3+w9vh278ykByw8Ex6gs37p4/Ih5tLPBcDbg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-12-01T20:34:26Z"
+    mac: ENC[AES256_GCM,data:JS66OgwFfnfsLOuVrBrX4hk2LJ902WMBDMUsXbuDMcH/2/bzMOdk3xIwTfunNt6xkB94UpqTMTnpQ0rZoyrhnT1HMLYHLxV6vtpgW3vGljaZj2GyjSanSCfLT8r9j0xP1fyJnydLyX40mHAsf+/pxp1Ka12qQLwEuZLbo+4k13Q=,iv:nBNjJ/52KfUZ1EiK5KF7RJhxo5vQa1rU7mNZ/02QOLk=,tag:d8K//+jkM1q3zxxxlu9iDw==,type:str]
+    encrypted_regex: ^(data|stringData|spec)$
+    version: 3.11.0
