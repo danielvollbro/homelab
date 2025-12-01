@@ -1,55 +1,24 @@
-apiVersion: cilium.io/v2alpha1 # CiliumLoadBalancerIPPool currently only available in v2alpha1
+apiVersion: cilium.io/v2alpha1
 kind: CiliumLoadBalancerIPPool
 metadata:
     name: prod-pool
     namespace: kube-system
 spec:
     blocks:
-        - start: ENC[AES256_GCM,data:wT8JvOpJ3wN3yq4WgvI=,iv:RdAx4YI/k0CrW8ZqqNddLaXG+tbFxKDuynXUoVoOplQ=,tag:xWtIoFA4/MkaBJNOAnU2EA==,type:str]
-          stop: ENC[AES256_GCM,data:PlinxkT6M6XnnNXQGXU=,iv:egJW3xVjwJUqjeARGf+hYSskaWgdvEFbyzRMx4bFc20=,tag:bZ7s3W8qpd66zXJheraKTw==,type:str]
+        - start: ENC[AES256_GCM,data:JcT0Roct0BBShZ1edgA=,iv:7Q8pZq9o+5XtSCeTFsy8LgTt2txVa7EMaia3QhPLkBw=,tag:N1MEPCskOeXtBIu18mTdWA==,type:str]
+          stop: ENC[AES256_GCM,data:59L71wrJSdjoL8iuhIo=,iv:9UrqDwREMPgAp9jRNQejN0gZ3mQT11Ne24MCJfXK/6o=,tag:S9gQYIUVn50aisvoPO0r8A==,type:str]
 sops:
     age:
         - recipient: age1f70m834v0d5scfgvur7kakl06dvgdctafh64xc2p3xssu2msr9tq3pyfe7
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBjS1puMS81Z2kxN2xWV2w0
-            clZqclJvWDdGeFpkckViejdoRnJMNXJqcjA0CmJQTVd4M3htR2hhZVp3MldDNFFK
-            Q0Q0bi9TZWtZRUVHTytVWmJZV0l4VHcKLS0tIHVwN3NWK3RVRnFrUlZoQWNqQU5R
-            WEM1STJuZGg4U1pjd3VoekR1OTdMWUkKbY/bW4uQD8p7Nl6p+xy2K1j42jX9uIan
-            d7NtvnGjOvFwCfBVyuN2X5KZ+X4z+Ox6l41JnhIp6CGF9EPQEYCJEQ==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBQTVlZNFZpRzRMZHhldEFn
+            Q1I4TGFRUENnUUMyVW5JWFo4eFU5anlpSWlvCmh1K3YzWTI2Q1dDTlZhMHcydTJ5
+            clZZeUIwRU9aRWJjOEo0b2NBaTZWNXMKLS0tIFBkbE1tcElrUFpicG5DZkE3Qmt3
+            c0ZYMi9jazhFNEpuVURRdTJhSUlBZ0EKKhEvDPT3F4oLb31s9kK9NHvkpjbB0e1o
+            A5m28BwdULZOILMN1okKKYbMRhyvumVqi3ODdAoWM6rcENGQ64+wgw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-12-01T12:14:55Z"
-    mac: ENC[AES256_GCM,data:4erJjzdKMAMtXNXMRg6C40EEebKn1BZTw9SniHVEh0ozUiL2eBmqkbzo+g2WlwSReoFJXaHNH+RO0kqHnAJEL5ujTwc1kTJ5eg30CJCDQqAnIjXHsTGFWBnR4D1mSGQ7a4v8/e6QLPLGV0yHis/eZ71j6QF+A+yjPusTFEUS70g=,iv:ZG7cC96Wj9uetM3GHVXlHlqHMC+olJPaC/lnJLzgBho=,tag:SmMkQGEFsWanmiqbS+fv3w==,type:str]
-    encrypted_regex: ^(data|stringData|spec)$
-    version: 3.11.0
----
-apiVersion: cilium.io/v2alpha1 # CiliumL2AnnouncementPolicy currently only available in v2alpha1
-kind: CiliumL2AnnouncementPolicy
-metadata:
-    name: prod-l2-policy
-    namespace: kube-system
-spec:
-    externalIPs: ENC[AES256_GCM,data:9gxHGQ==,iv:ofpxnQm0pXeXTyq3NohqfnKnkLoBDyW4GYiUMmTccOg=,tag:iDFtW9NdzS28MsYHFWgt8A==,type:bool]
-    loadBalancerIPs: ENC[AES256_GCM,data:EPtJ1Q==,iv:LtKBymuqUaTu1K5xo+mJJYodXjR8QTmDmaW59MxtnRg=,tag:LhKwmMXdTyBlwwPNPSwatQ==,type:bool]
-    interfaces:
-        - ENC[AES256_GCM,data:xMj7Y6w=,iv:dIy1aTnv6aE1BwFgDV3ULWRiuotDV2IBfW/J0C8tvfM=,tag:smG/qgEwV1psMtKmybeA5w==,type:str]
-        - ENC[AES256_GCM,data:J/140KM=,iv:CGDmaGw6HxxEmfu0OUV0Ry3k5bnumAioCAW3Y1W58lc=,tag:c2bP750Sm7ljDc+vUPg/Eg==,type:str]
-    nodeSelector:
-        matchExpressions:
-            - key: ENC[AES256_GCM,data:gZ/dsStWIvo7p9sib0F/zfN9/2yWzv6SItUnUT/xtSS0FLgXyg==,iv:4jV8evBCiC5Wdwqf5iKP1+AlCvBj4D0T2HwAM7+IhA8=,tag:HD8LffcxJOB25hBXoIBfCA==,type:str]
-              operator: ENC[AES256_GCM,data:CBhZI/AY,iv:hSJzq4jBLyIqvE5FvrOng3k81KrtAjG3uHnjC1kxHp4=,tag:vWWs4YsAQlBfqRKa2lBr1g==,type:str]
-sops:
-    age:
-        - recipient: age1f70m834v0d5scfgvur7kakl06dvgdctafh64xc2p3xssu2msr9tq3pyfe7
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBjS1puMS81Z2kxN2xWV2w0
-            clZqclJvWDdGeFpkckViejdoRnJMNXJqcjA0CmJQTVd4M3htR2hhZVp3MldDNFFK
-            Q0Q0bi9TZWtZRUVHTytVWmJZV0l4VHcKLS0tIHVwN3NWK3RVRnFrUlZoQWNqQU5R
-            WEM1STJuZGg4U1pjd3VoekR1OTdMWUkKbY/bW4uQD8p7Nl6p+xy2K1j42jX9uIan
-            d7NtvnGjOvFwCfBVyuN2X5KZ+X4z+Ox6l41JnhIp6CGF9EPQEYCJEQ==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-12-01T12:14:55Z"
-    mac: ENC[AES256_GCM,data:4erJjzdKMAMtXNXMRg6C40EEebKn1BZTw9SniHVEh0ozUiL2eBmqkbzo+g2WlwSReoFJXaHNH+RO0kqHnAJEL5ujTwc1kTJ5eg30CJCDQqAnIjXHsTGFWBnR4D1mSGQ7a4v8/e6QLPLGV0yHis/eZ71j6QF+A+yjPusTFEUS70g=,iv:ZG7cC96Wj9uetM3GHVXlHlqHMC+olJPaC/lnJLzgBho=,tag:SmMkQGEFsWanmiqbS+fv3w==,type:str]
+    lastmodified: "2025-12-01T20:32:53Z"
+    mac: ENC[AES256_GCM,data:ib3wR5gyLBZ1jjvBUJuaG5VjrlVSy+hs+aY+R/UcvPybs1y7Ng/3HwnETzsy5LfkZMMl0I7LhHUkIj9oMt3yiEcMFMrHn8QJrYgOMNzpscn+kH2/ZWw240WJTPbfyaOiZe85Y9qnH2lk9jO8e7sAXRc4n8kJhF8Ne/eoSxTX3Ss=,iv:OMjGb2Z/ADE5vIPK5eR6gMy7aRFftO0L/I50SxTTXOw=,tag:tvOSrOFtFSWTxc16qLnDgQ==,type:str]
     encrypted_regex: ^(data|stringData|spec)$
     version: 3.11.0
