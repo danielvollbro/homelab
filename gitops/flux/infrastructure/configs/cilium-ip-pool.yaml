@@ -1,4 +1,4 @@
-apiVersion: cilium.io/v2
+apiVersion: cilium.io/v2alpha1 # CiliumLoadBalancerIPPool currently only available in v2alpha1
 kind: CiliumLoadBalancerIPPool
 metadata:
     name: prod-pool
@@ -23,7 +23,7 @@ sops:
     encrypted_regex: ^(data|stringData|spec)$
     version: 3.11.0
 ---
-apiVersion: cilium.io/v2
+apiVersion: cilium.io/v2alpha1 # CiliumL2AnnouncementPolicy currently only available in v2alpha1
 kind: CiliumL2AnnouncementPolicy
 metadata:
     name: prod-l2-policy
