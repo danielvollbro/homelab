@@ -29,7 +29,8 @@ module "cilium_bootstrap" {
 resource "time_sleep" "wait_for_network" {
   depends_on = [module.cilium_bootstrap]
 
-  create_duration = "60s"
+  // Wait for Cilium network to stabilize
+  create_duration = "180s"
 }
 
 module "flux_bootstrap" {
@@ -37,6 +38,7 @@ module "flux_bootstrap" {
 
   depends_on = [time_sleep.wait_for_network]
 
-  target_path = "gitops/flux/clusters/prod"
-  github_repo = var.github_repo
+  target_path     = "gitops/flux/clusters/prod"
+  github_repo     = var.github_repo
+  age_key_content = file("${path.root}/../../../age.agekey")
 }

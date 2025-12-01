@@ -53,3 +53,17 @@ provider "helm" {
     )
   }
 }
+
+provider "kubernetes" {
+  host = yamldecode(module.talos_cluster.kubeconfig).clusters[0].cluster.server
+
+  client_certificate = base64decode(
+    yamldecode(module.talos_cluster.kubeconfig).users[0].user.client-certificate-data
+  )
+  client_key = base64decode(
+    yamldecode(module.talos_cluster.kubeconfig).users[0].user.client-key-data
+  )
+  cluster_ca_certificate = base64decode(
+    yamldecode(module.talos_cluster.kubeconfig).clusters[0].cluster.certificate-authority-data
+  )
+}
