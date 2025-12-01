@@ -40,3 +40,5 @@ terraform.rc
 
 # Backend configuration
 **/backend.config
+
+age.agekey

@@ -38,4 +38,5 @@ module "flux_bootstrap" {
   depends_on = [time_sleep.wait_for_network]
 
   target_path = "gitops/flux/clusters/prod"
+  github_repo = var.github_repo
 }
