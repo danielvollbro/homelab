@@ -14,6 +14,7 @@ spec:
         name: gitlab
         namespace: flux-system
 
+  timeout: 20m
   targetNamespace: gitlab
   install:
     createNamespace: true
