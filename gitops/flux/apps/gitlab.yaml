@@ -1,0 +1,57 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: gitlab
+  namespace: flux-system
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: gitlab
+      version: "9.6.1"
+      sourceRef:
+        kind: HelmRepository
+        name: gitlab
+        namespace: flux-system
+
+  targetNamespace: gitlab
+  install:
+    createNamespace: true
+
+  # --- Timeout to allow for initial setup ---
+  timeout: 15m
+
+  values:
+    global:
+      edition: ce # Community Edition
+      hosts:
+        domain: git.vollbro.se
+        https: true
+
+      ingress:
+        configureCertmanager: true
+        class: nginx
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
+
+      storageClass: nfs-client
+
+    # --- Turn off built-in services ---
+    certmanager:
+      install: false
+
+    nginx-ingress:
+      enabled: false
+
+    prometheus:
+      install: false
+
+    # --- Setup internal GitLab Runner ---
+    gitlab-runner:
+      install: true
+
+    # --- Databases (These will be separated later) ---
+    postgresql:
+      install: true
+    redis:
+      install: true
