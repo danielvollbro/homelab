@@ -46,5 +46,7 @@ spec:
       install: true
     postgresql:
       install: true
+      volumePermissions:
+        enabled: true
     redis:
       install: true
