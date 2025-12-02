@@ -33,6 +33,8 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
 
       storageClass: nfs-client
+    certmanager-issuer:
+      email: "wollbro90@gmail.com"
 
     certmanager:
       enabled: false
