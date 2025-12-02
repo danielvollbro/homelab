@@ -14,17 +14,14 @@ spec:
         name: gitlab
         namespace: flux-system
 
-  timeout: 20m
   targetNamespace: gitlab
   install:
     createNamespace: true
-
-  # --- Timeout to allow for initial setup ---
-  timeout: 15m
+  timeout: 20m
 
   values:
     global:
-      edition: ce # Community Edition
+      edition: ce
       hosts:
         domain: git.vollbro.se
         https: true
@@ -37,21 +34,14 @@ spec:
 
       storageClass: nfs-client
 
-    # --- Turn off built-in services ---
     certmanager:
-      install: false
-
+      enabled: false
     nginx-ingress:
       enabled: false
-
     prometheus:
-      install: false
-
-    # --- Setup internal GitLab Runner ---
+      enabled: false
     gitlab-runner:
       install: true
-
-    # --- Databases (These will be separated later) ---
     postgresql:
       install: true
     redis:
