@@ -17,7 +17,7 @@ spec:
   targetNamespace: gitlab
   install:
     createNamespace: true
-  timeout: 21m
+  timeout: 20m
 
   values:
     global:
