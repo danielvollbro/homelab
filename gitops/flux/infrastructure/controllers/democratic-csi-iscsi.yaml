@@ -72,3 +72,11 @@ spec:
           targetGroup: 1
           extentInsecureTpc: true
           xenInitiatorCompat: false
+
+    node:
+      driver:
+        securityContext:
+          privileged: true
+          allowPrivilegeEscalation: true
+
+      mountISCSIDir: false
