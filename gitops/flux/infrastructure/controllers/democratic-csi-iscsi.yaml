@@ -67,10 +67,13 @@ spec:
                     zvolBlocksize: ENC[AES256_GCM,data:nLIY,iv:Dgf3aVycu5bpSSZ/BVbDe3t6cjz5Lb0v42qp1ffrbmk=,tag:G9gQ34UE/gI9rQ7KqwzMHA==,type:str]
                 iscsi:
                     targetPortal: ENC[AES256_GCM,data:V12WMECr49IJ2e5ZV9TIvDr3,iv:ags4jk6ZbDg2kQjVMHbREnt5IgmSM/WQrwDX8Pj6tvo=,tag:Wiy21YCltcA4UpedFgLC3w==,type:str]
+                    targetGroups:
+                        - targetGroupPortalGroup: ENC[AES256_GCM,data:bA==,iv:d/UuHl2iTbbt87lsicxnnUEeG1oB5mCUmq3CyfYEhvc=,tag:R2aFMjK1xpD1j16FFNUa+w==,type:int]
+                          targetGroupInitiatorGroup: ENC[AES256_GCM,data:rQ==,iv:rKPGjyYzvBwZbtCQ9Yo7ytqBXyieGE+L92Nkea9ntwI=,tag:N2heoyal3fOXR56rKmNWSA==,type:int]
+                          targetGroupAuthType: ENC[AES256_GCM,data:MK+yTg==,iv:OzyqlQ4yrNl9VHkagEDAhAY6myzdwq3t0il/5w9/z1k=,tag:IqTBTbS/5MUeJPyLrpjXVg==,type:str]
+                          targetGroupAuthGroup: null
                     namePrefix: ENC[AES256_GCM,data:UuRCQw==,iv:kp53MA5v0BtmtJulKUSmfqrBowXKPZjyCZ4uqsLoJjw=,tag:pIJNnJAKX94eS86VxRMi0g==,type:str]
                     nameSuffix: ENC[AES256_GCM,data:6f3XcLG2n5k=,iv:34N436WbTvfAMNcomJKR1N0lhbu4T+mUL2kohTDJL44=,tag:+bi9+JQ+XcGgPLXZDr1Tlg==,type:str]
-                    targetPortalGroup: ENC[AES256_GCM,data:HQ==,iv:Ohk6HRfvV6Aj6nxFRIhTs3dmPq/auL9FAjbJbDNJgts=,tag:UxjT/ED5y3LbgVV4qP9Kcg==,type:int]
-                    targetGroup: ENC[AES256_GCM,data:mQ==,iv:P9GTsXM2PGal1RdSWiVj4THzDCWWCD+610m5DNPEc/c=,tag:I/extbd71q2J7P6ZuKQ5WQ==,type:int]
                     extentInsecureTpc: ENC[AES256_GCM,data:kV/Jcw==,iv:LLm60HTqWZPjnaPJUqZ0/kbI7LL4O1ZQ9+kLV7Uybz8=,tag:N92mIyFZjnHnqbpKRudI6g==,type:bool]
                     xenInitiatorCompat: ENC[AES256_GCM,data:Ra/uEp4=,iv:tWeDbrOwt00Nv7A+u+BG7QmiBF/tdKI4hiVkh/juz1s=,tag:qm119Vd+0MyuoZFqfGqOVQ==,type:bool]
         node:
@@ -96,7 +99,7 @@ sops:
             WjhkSmdYVFpEUU0wdkFRTlRHQUlFdnMKCcQeaNV5DlERAZDJfwiI4nLkHoE4+T2u
             n/94icSXZ2oeOpYq8d3HRQO5bDM2eg3C5gIKoob2U4WyoW48L5hlVg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-12-03T21:33:36Z"
-    mac: ENC[AES256_GCM,data:S2RNBY+yy4IE7LutpSV/j1oryWJsu0bcO1YiPr1bAfdeJ5EmEiteivu2XqxT8rHK/vSKgT/9ep5sL7ivcg8zdRxelFbvI0p9y6berJGdvyMyeGdfDffhfk40b/zpE9OhAvaOh59mPXj4VzlbWi1vM87ErrSdEz4V9aSka21g2Q8=,iv:luwWQQvGPZ99Nercg+xWYeZfZiThYl132G/KY+of9/M=,tag:qhRSz19JPZ8WTmi9qYVCqg==,type:str]
+    lastmodified: "2025-12-03T21:41:14Z"
+    mac: ENC[AES256_GCM,data:B4zmCXXMnXWH0HY4P3/5+z/lIPv2jxvvXn1k9BpEwUr0PN+xXbgvM+J+EgpMZ0zvaAymd9jNlCpwiDDSri89S4lKCx6OV5ZzCkkPPKntQvwEGhw8GDTqx2UmQ12HBUYuapR46eqNUbtcAKa5qVy3k9ZhnpiqfxFO2ROmN2FI/Yg=,iv:OPKfRcJm5911s8Dg/VLdl9n3qnY4sK6Zzu5dweTACpY=,tag:1/RnMJmJ9Cmb6RoRA8k73A==,type:str]
     encrypted_regex: ^(data|stringData|spec)$
     version: 3.11.0
