@@ -41,9 +41,10 @@ spec:
         driver: freenas-api-iscsi
         instance_id:
         httpConnection:
-          protocol: http
-          host: 192.168.50.20
-          port: 80
+          protocol: https
+          host: nas.home.vollbro.se
+          port: 443
+          basePath: /api/v2.0
           apiVersion: 2
 
           apiKey:
