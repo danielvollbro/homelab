@@ -46,7 +46,17 @@ spec:
       install: true
     postgresql:
       install: true
-      volumePermissions:
+      primary:
+        volumePermissions:
           enabled: false
+
+        podSecurityContext:
+          fsGroup: null
+          runAsUser: 1001
+          fsGroupChangePolicy: "OnRootMismatch"
+
+        containerSecurityContext:
+          runAsUser: 1001
+          allowPrivilegeEscalation: false
     redis:
       install: true
