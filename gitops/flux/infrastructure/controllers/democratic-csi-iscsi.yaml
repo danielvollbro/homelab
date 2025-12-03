@@ -44,6 +44,8 @@ spec:
           protocol: http
           host: 192.168.50.20
           port: 80
+          apiVersion: 2
+
           apiKey:
             valueFrom:
               secretKeyRef:
