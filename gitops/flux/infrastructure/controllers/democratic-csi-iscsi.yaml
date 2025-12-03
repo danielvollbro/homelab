@@ -19,7 +19,10 @@ spec:
     values:
         controller:
             driver:
-                image: ENC[AES256_GCM,data:vMqHUVqKvfydoB31YcVYY+rOH+s/5+egBSxSqy5b1NL0,iv:FJRXAf+nUUqYkrZTyCgZTEeyne61X3colHR4VYhfYW4=,tag:pV084FO8LH5zTPEFEzKi8w==,type:str]
+                image:
+                    repository: ENC[AES256_GCM,data:9Xneje+qChBfLr1hz5GQ3bEKjjgUR6kQn5rkvw==,iv:0lnVcZUSS4Mt2KPFwASGpUDGGME9Ls9fLBA6CW4bV7E=,tag:o8+gleEwaMJZ3laowzqazQ==,type:str]
+                    tag: ENC[AES256_GCM,data:6l3KIw==,iv:e2PS8z2jjlmvzgwsVtNurW8f8+cjVwTesWrgeWxiX8Y=,tag:EtFVYPTY7mxIdUFZ8WJt7g==,type:str]
+                    pullPolicy: ENC[AES256_GCM,data:O16Souco,iv:+z6jaPW8DIK6IbhBdXdJfp2B5W67K77+rONoLYtuD6M=,tag:jkh4MrYcJlxMyaq+oqRF+Q==,type:str]
                 env:
                     - name: ENC[AES256_GCM,data:QN8j5MeTHNCfpjEwjPnG,iv:HEqme49mI6skj2F9KVw0dUOm6y6AxAuG9/TNSGNLUuM=,tag:PCY70cyri+RNPc49mDq7Zg==,type:str]
                       valueFrom:
@@ -73,7 +76,10 @@ spec:
                     xenInitiatorCompat: ENC[AES256_GCM,data:Ra/uEp4=,iv:tWeDbrOwt00Nv7A+u+BG7QmiBF/tdKI4hiVkh/juz1s=,tag:qm119Vd+0MyuoZFqfGqOVQ==,type:bool]
         node:
             driver:
-                image: ENC[AES256_GCM,data:CC6YuiQwjljEjocNy11+ghKFy+EVJrFaNfsZuBIjTbpE,iv:KOH3hst1WvuIzBCFRa4j+4PTr74YfMyDeQZ8tBG6Mzs=,tag:dNR2IPmwLRFe+TlDHvGezQ==,type:str]
+                image:
+                    repository: ENC[AES256_GCM,data:qeLd4yQVB7ZVxfsdOxNdr+gYL78Mct1HWdkayg==,iv:uQdxGNyDOEioxqWDt8nUNyRPqc0qu/PCMtrKN+PW2TI=,tag:KmovgrzcrOyde5cjRjZBnQ==,type:str]
+                    tag: ENC[AES256_GCM,data:DQixEg==,iv:ruUpZskmasK/hlvVg/64BYqhM/ppQGIAb9IYAAtBLi4=,tag:A52yJzlNllb6VdIi+PeJ5A==,type:str]
+                    pullPolicy: ENC[AES256_GCM,data:yPj45eV/,iv:ITrjEwC39j2XJPxm9FPWXjQJ/oSPmURt9pc3es0RS1U=,tag:f3yBpt6BJuVEkEugT9pgng==,type:str]
                 securityContext:
                     privileged: ENC[AES256_GCM,data:El2GMw==,iv:dYSCCkEmLfOXrJ+1y5nAxPfC8l27//LZGym8yID0raM=,tag:FUzUlEJqhZxiReRWcE1URQ==,type:bool]
                     allowPrivilegeEscalation: ENC[AES256_GCM,data:3x6IPA==,iv:AK3UkG2fT1cVVKpzhsUJ+bwxfJbWi+mqXTxYdjxK/Qg=,tag:ct09QuEXGUgCTJaYddWMUQ==,type:bool]
@@ -91,7 +97,7 @@ sops:
             WjhkSmdYVFpEUU0wdkFRTlRHQUlFdnMKCcQeaNV5DlERAZDJfwiI4nLkHoE4+T2u
             n/94icSXZ2oeOpYq8d3HRQO5bDM2eg3C5gIKoob2U4WyoW48L5hlVg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-12-03T21:12:57Z"
-    mac: ENC[AES256_GCM,data:e/00NecGHaj4xEO5zZW6O1OCI7AE7+sv8fna185OKv/VKxniOL5l7c52WX5Qojgi3yT9FSDbitiwJIIJMo21Ck8A/YFAEW3dTp1F8nmn+M2VLZ9bFA3nbnPJK4L0pciu1AJV55LRJvWJzyp6U081tR5rllft8BAYgZrUzlSH34U=,iv:9UPOMjFWF+WmlLUuQrmCF1zzCSNfXlNM448a/gMrnC8=,tag:Jw3znvrw+LiJMlDD1ATbBg==,type:str]
+    lastmodified: "2025-12-03T21:24:49Z"
+    mac: ENC[AES256_GCM,data:9lbkacETyKUPeLPQ7vX3WHG44kTq0BoxgMSdD5sBs6o9r/DCcEq4Nl3f5+i5Yq5PGa3FRzQ7eVvOxdq+1xmDIEatwmNJ/6yg4jRD3XHTSXYIoXju7ik4VBqvJwKbKGkvA1PR9CfdmlEwOina4amyMETR1oIY98m5Fid3gVQjmyU=,iv:+3/IXFeFPjf2UXLnBD1JMiznk90Br66xL+K0ZVnZuss=,tag:S6im0FbaupekvCUr6xjJQQ==,type:str]
     encrypted_regex: ^(data|stringData|spec)$
     version: 3.11.0
