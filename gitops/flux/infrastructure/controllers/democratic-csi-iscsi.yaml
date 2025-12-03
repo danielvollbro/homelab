@@ -44,7 +44,6 @@ spec:
           protocol: https
           host: nas.home.vollbro.se
           port: 443
-          basePath: /api/v2.0
           apiVersion: 2
 
           apiKey:
