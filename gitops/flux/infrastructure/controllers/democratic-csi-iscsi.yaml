@@ -57,7 +57,7 @@ spec:
           username: root
 
         zfs:
-          datasetParentName: storage/k8s-block
+          datasetParentName: storage/k8s-block/disks
           detachedSnapshotsDatasetParentName: storage/k8s-block/snaps
           zvolCompression: lz4
           zvolDedup: off
