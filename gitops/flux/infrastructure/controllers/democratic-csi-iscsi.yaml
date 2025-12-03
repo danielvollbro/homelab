@@ -19,6 +19,15 @@ spec:
     createNamespace: true
 
   values:
+    controller:
+      driver:
+        env:
+          - name: TRUENAS_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: truenas-apikey
+                key: key
+
     csiDriver:
       name: "org.democratic-csi.iscsi"
 
@@ -46,11 +55,7 @@ spec:
           port: 80
           apiVersion: "2"
 
-          apiKey:
-            valueFrom:
-              secretKeyRef:
-                name: truenas-apikey
-                key: key
+          apiKey: "${TRUENAS_API_KEY}"
           allowInsecure: true
 
         sshConnection:
@@ -77,6 +82,13 @@ spec:
 
     node:
       driver:
+        env:
+          - name: TRUENAS_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: truenas-apikey
+                key: key
+
         securityContext:
           privileged: true
           allowPrivilegeEscalation: true
