@@ -32,7 +32,7 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
 
-      storageClass: nfs-client
+      storageClass: freenas-iscsi
     certmanager-issuer:
       email: "wollbro90@gmail.com"
 
@@ -46,20 +46,5 @@ spec:
       install: true
     postgresql:
       install: true
-      primary:
-        volumePermissions:
-          enabled: false
-
-        podSecurityContext:
-          fsGroup: 0
-          runAsUser: 0
-
-        containerSecurityContext:
-          runAsUser: 0
-          runAsGroup: 0
-          allowPrivilegeEscalation: true
-          readOnlyRootFilesystem: false
-          capabilities:
-            add: ["CHOWN", "DAC_OVERRIDE", "FOWNER"]
     redis:
       install: true

@@ -9,7 +9,8 @@ module "talos_cluster" {
   nodes_vm_start_id = 200
   nodes_pve_node    = "gryffindor"
   nodes_extensions = [
-    "siderolabs/qemu-guest-agent"
+    "siderolabs/qemu-guest-agent",
+    "siderolabs/iscsi-tools"
   ]
 
   network_gateway       = var.gateway
