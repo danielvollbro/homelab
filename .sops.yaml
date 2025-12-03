@@ -1,5 +1,5 @@
 creation_rules:
-  - path_regex: .*/infrastructure/configs/.*\.yaml
+  - path_regex: gitops/flux/infrastructure/.*\.yaml
     encrypted_regex: "^(data|stringData|spec)$"
     age: >-
       age1f70m834v0d5scfgvur7kakl06dvgdctafh64xc2p3xssu2msr9tq3pyfe7
