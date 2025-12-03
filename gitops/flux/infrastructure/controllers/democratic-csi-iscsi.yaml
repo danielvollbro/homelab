@@ -19,6 +19,7 @@ spec:
     values:
         controller:
             driver:
+                image: ENC[AES256_GCM,data:vMqHUVqKvfydoB31YcVYY+rOH+s/5+egBSxSqy5b1NL0,iv:FJRXAf+nUUqYkrZTyCgZTEeyne61X3colHR4VYhfYW4=,tag:pV084FO8LH5zTPEFEzKi8w==,type:str]
                 env:
                     - name: ENC[AES256_GCM,data:QN8j5MeTHNCfpjEwjPnG,iv:HEqme49mI6skj2F9KVw0dUOm6y6AxAuG9/TNSGNLUuM=,tag:PCY70cyri+RNPc49mDq7Zg==,type:str]
                       valueFrom:
@@ -72,6 +73,7 @@ spec:
                     xenInitiatorCompat: ENC[AES256_GCM,data:Ra/uEp4=,iv:tWeDbrOwt00Nv7A+u+BG7QmiBF/tdKI4hiVkh/juz1s=,tag:qm119Vd+0MyuoZFqfGqOVQ==,type:bool]
         node:
             driver:
+                image: ENC[AES256_GCM,data:CC6YuiQwjljEjocNy11+ghKFy+EVJrFaNfsZuBIjTbpE,iv:KOH3hst1WvuIzBCFRa4j+4PTr74YfMyDeQZ8tBG6Mzs=,tag:dNR2IPmwLRFe+TlDHvGezQ==,type:str]
                 securityContext:
                     privileged: ENC[AES256_GCM,data:El2GMw==,iv:dYSCCkEmLfOXrJ+1y5nAxPfC8l27//LZGym8yID0raM=,tag:FUzUlEJqhZxiReRWcE1URQ==,type:bool]
                     allowPrivilegeEscalation: ENC[AES256_GCM,data:3x6IPA==,iv:AK3UkG2fT1cVVKpzhsUJ+bwxfJbWi+mqXTxYdjxK/Qg=,tag:ct09QuEXGUgCTJaYddWMUQ==,type:bool]
@@ -89,7 +91,7 @@ sops:
             WjhkSmdYVFpEUU0wdkFRTlRHQUlFdnMKCcQeaNV5DlERAZDJfwiI4nLkHoE4+T2u
             n/94icSXZ2oeOpYq8d3HRQO5bDM2eg3C5gIKoob2U4WyoW48L5hlVg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-12-03T21:06:20Z"
-    mac: ENC[AES256_GCM,data:1YpipwqnllZbJRmbc7uVL8mcD3qXhAL6QpWS2s9nt+v7ZH6cuMAO9T3Pr329PG9zyFn6AVEVFaJR9EqAFt8zNBl5k5h7O5K+KK4DdWrM2zI2DS09kfHtnS3joU6XrzcQna9kaGfDgyF5WvRfr3O0GmZQaIAY+vAXrGWBfZU6/wg=,iv:1QxK6l242oT/BZQaXm3UxgiK7PxUzjnYELsAXz0EI4M=,tag:03W48+TqvQAa5UN5gB8wQA==,type:str]
+    lastmodified: "2025-12-03T21:12:57Z"
+    mac: ENC[AES256_GCM,data:e/00NecGHaj4xEO5zZW6O1OCI7AE7+sv8fna185OKv/VKxniOL5l7c52WX5Qojgi3yT9FSDbitiwJIIJMo21Ck8A/YFAEW3dTp1F8nmn+M2VLZ9bFA3nbnPJK4L0pciu1AJV55LRJvWJzyp6U081tR5rllft8BAYgZrUzlSH34U=,iv:9UPOMjFWF+WmlLUuQrmCF1zzCSNfXlNM448a/gMrnC8=,tag:Jw3znvrw+LiJMlDD1ATbBg==,type:str]
     encrypted_regex: ^(data|stringData|spec)$
     version: 3.11.0
