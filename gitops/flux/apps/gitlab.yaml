@@ -17,7 +17,7 @@ spec:
   targetNamespace: gitlab
   install:
     createNamespace: true
-  timeout: 21m
+  timeout: 20m
 
   values:
     global:
@@ -51,12 +51,15 @@ spec:
           enabled: false
 
         podSecurityContext:
-          fsGroup: null
-          runAsUser: 1001
-          fsGroupChangePolicy: "OnRootMismatch"
+          fsGroup: 0
+          runAsUser: 0
 
         containerSecurityContext:
-          runAsUser: 1001
-          allowPrivilegeEscalation: false
+          runAsUser: 0
+          runAsGroup: 0
+          allowPrivilegeEscalation: true
+          readOnlyRootFilesystem: false
+          capabilities:
+            add: ["CHOWN", "DAC_OVERRIDE", "FOWNER"]
     redis:
       install: true
