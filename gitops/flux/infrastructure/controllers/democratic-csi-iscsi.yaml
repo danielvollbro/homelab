@@ -63,7 +63,6 @@ spec:
                     datasetParentName: ENC[AES256_GCM,data:GD+vtoujquqrp1l9znkG5qAdi2gBzBs=,iv:ZAKvOjaUkM/C9Y0T4sq7/ze/29pHTEJ6hpOP3fn6uwo=,tag:8EFcQ4ZareT9Rz/3Fhz/fQ==,type:str]
                     detachedSnapshotsDatasetParentName: ENC[AES256_GCM,data:nOg+rkgtAK3Vo8YEr7/7SqHOlNQa958=,iv:MG2YHhbVIL7ANJn9aVVkjkEpbUaWKNVLG/63Hhj3jjw=,tag:yzuWciOt4TrciAsrfSMhCA==,type:str]
                     zvolCompression: ENC[AES256_GCM,data:dRgf,iv:5OdJ5Yr11WslOtWn4gxx01uw85KyQnmV65lhpbFCSZ8=,tag:OV53v1jE5IGoDHJJkuSXQg==,type:str]
-                    zvolDedup: ENC[AES256_GCM,data:2p/X,iv:WTdWP2GMUnbXPKRz+aIWXvlxSy2S3nO2mz2gT0Rg4Dc=,tag:cdfpBUUhWYYFo4U2yYV3NA==,type:str]
                     zvolEnableReservation: ENC[AES256_GCM,data:nbGfNsg=,iv:AZMCzcCr+1HxVbH1YkMLZ4/d1unJwSdd5riPo8sCmZ8=,tag:ccotWf4gS0YgD/pOBvhi/Q==,type:bool]
                     zvolBlocksize: ENC[AES256_GCM,data:nLIY,iv:Dgf3aVycu5bpSSZ/BVbDe3t6cjz5Lb0v42qp1ffrbmk=,tag:G9gQ34UE/gI9rQ7KqwzMHA==,type:str]
                 iscsi:
@@ -97,7 +96,7 @@ sops:
             WjhkSmdYVFpEUU0wdkFRTlRHQUlFdnMKCcQeaNV5DlERAZDJfwiI4nLkHoE4+T2u
             n/94icSXZ2oeOpYq8d3HRQO5bDM2eg3C5gIKoob2U4WyoW48L5hlVg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-12-03T21:24:49Z"
-    mac: ENC[AES256_GCM,data:9lbkacETyKUPeLPQ7vX3WHG44kTq0BoxgMSdD5sBs6o9r/DCcEq4Nl3f5+i5Yq5PGa3FRzQ7eVvOxdq+1xmDIEatwmNJ/6yg4jRD3XHTSXYIoXju7ik4VBqvJwKbKGkvA1PR9CfdmlEwOina4amyMETR1oIY98m5Fid3gVQjmyU=,iv:+3/IXFeFPjf2UXLnBD1JMiznk90Br66xL+K0ZVnZuss=,tag:S6im0FbaupekvCUr6xjJQQ==,type:str]
+    lastmodified: "2025-12-03T21:33:36Z"
+    mac: ENC[AES256_GCM,data:S2RNBY+yy4IE7LutpSV/j1oryWJsu0bcO1YiPr1bAfdeJ5EmEiteivu2XqxT8rHK/vSKgT/9ep5sL7ivcg8zdRxelFbvI0p9y6berJGdvyMyeGdfDffhfk40b/zpE9OhAvaOh59mPXj4VzlbWi1vM87ErrSdEz4V9aSka21g2Q8=,iv:luwWQQvGPZ99Nercg+xWYeZfZiThYl132G/KY+of9/M=,tag:qhRSz19JPZ8WTmi9qYVCqg==,type:str]
     encrypted_regex: ^(data|stringData|spec)$
     version: 3.11.0
