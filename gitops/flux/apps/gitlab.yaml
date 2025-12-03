@@ -46,20 +46,7 @@ spec:
       install: true
     postgresql:
       install: true
-      primary:
-        podSecurityContext:
-          fsGroup: 1001
-        containerSecurityContext:
-          runAsUser: 1001
-
-        initContainers:
-          - name: fix-permissions
-            image: busybox:latest
-            command: ["sh", "-c", "chown -R 1001:1001 /bitnami/postgresql"]
-            volumeMounts:
-              - name: data
-                mountPath: /bitnami/postgresql
-            securityContext:
-              runAsUser: 0
+      volumePermissions:
+          enabled: false
     redis:
       install: true
