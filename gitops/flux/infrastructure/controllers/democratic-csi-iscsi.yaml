@@ -79,4 +79,7 @@ spec:
           privileged: true
           allowPrivilegeEscalation: true
 
-      mountISCSIDir: false
+        mountISCSIDir: false
+
+        extraVolumes: []
+        extraVolumeMounts: []
