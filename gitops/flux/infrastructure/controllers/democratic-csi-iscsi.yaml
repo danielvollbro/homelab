@@ -79,7 +79,5 @@ spec:
           privileged: true
           allowPrivilegeEscalation: true
 
-        mountISCSIDir: false
-
-        extraVolumes: []
-        extraVolumeMounts: []
+        iscsiDirHostPath: /var/lib/democratic-csi/iscsi
+        iscsiDirHostPathType: DirectoryOrCreate
