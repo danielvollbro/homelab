@@ -42,4 +42,5 @@ module "flux_bootstrap" {
   target_path     = "gitops/flux/clusters/prod"
   github_repo     = var.github_repo
   age_key_content = file("${path.root}/../../../age.agekey")
+  truenas_api_key = var.truenas_api_key
 }

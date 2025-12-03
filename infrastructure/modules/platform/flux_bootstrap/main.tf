@@ -15,3 +15,16 @@ resource "kubernetes_secret" "sops_age" {
 
   depends_on = [flux_bootstrap_git.this]
 }
+
+resource "kubernetes_secret" "truenas_apikey" {
+  metadata {
+    name      = "truenas-apikey"
+    namespace = "kube-system"
+  }
+
+  data = {
+    key = var.truenas_api_key
+  }
+
+  depends_on = [flux_bootstrap_git.this]
+}

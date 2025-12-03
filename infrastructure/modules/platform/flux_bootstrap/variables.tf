@@ -13,3 +13,9 @@ variable "age_key_content" {
   type        = string
   sensitive   = true
 }
+
+variable "truenas_api_key" {
+  description = "API Key for TrueNAS (Democratic CSI)"
+  type        = string
+  sensitive   = true
+}
