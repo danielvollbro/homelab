@@ -8,6 +8,8 @@ pkgs.mkShell {
     kustomize
     fluxcd
     helm
+    age
+    sops
   ];
 
   shellHook = ''
