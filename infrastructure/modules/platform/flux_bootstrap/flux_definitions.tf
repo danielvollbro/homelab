@@ -27,15 +27,15 @@ EOT
   depends_on = [flux_bootstrap_git.this]
 }
 
-resource "github_repository_file" "infrastructure_configs_yaml" {
+resource "github_repository_file" "infrastructure_certs_yaml" {
   repository          = var.github_repo
   branch              = "main"
-  file                = "${var.target_path}/infrastructure-configs.yaml"
+  file                = "${var.target_path}/infrastructure-certs.yaml"
   content             = <<EOT
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: infrastructure-configs
+  name: infrastructure-certs
   namespace: flux-system
 spec:
   interval: 10m0s
@@ -43,7 +43,7 @@ spec:
     kind: GitRepository
     name: flux-system
 
-  path: ./gitops/flux/infrastructure/configs
+  path: ./gitops/flux/infrastructure/certs
   prune: true
   wait: true
 
@@ -55,7 +55,7 @@ spec:
   dependsOn:
     - name: infrastructure
 EOT
-  commit_message      = "Terraform: Manage infrastructure-configs.yaml"
+  commit_message      = "Terraform: Manage infrastructure-certs.yaml"
   overwrite_on_create = true
 
   depends_on = [flux_bootstrap_git.this]
@@ -80,7 +80,7 @@ spec:
   prune: true
   wait: true
   dependsOn:
-    - name: infrastructure-configs
+    - name: infrastructure-certs
 EOT
   commit_message      = "Terraform: Manage apps.yaml"
   overwrite_on_create = true
