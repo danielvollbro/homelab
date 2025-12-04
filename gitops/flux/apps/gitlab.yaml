@@ -40,10 +40,12 @@ spec:
         https: true
 
       ingress:
-        configureCertmanager: true
+        configureCertmanager: false
         class: nginx
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        tls:
+          enabled: true
 
       storageClass: freenas-iscsi
     certmanager-issuer:
