@@ -113,7 +113,7 @@ spec:
           objectStorage:
             config:
               secret: gitlab-backup-s3cfg
-              key: connection
+              key: config
 
       webservice:
         minReplicas: 1
