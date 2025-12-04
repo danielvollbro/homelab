@@ -15,6 +15,13 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.MINIO_USERNAME }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.MINIO_PASSWORD }}
+      TF_BACKEND_BUCKET: ${{ secrets.MINIO_BUCKET }}
+      TF_BACKEND_KEY: ${{ secrets.MINIO_TF_KEY }}
+      TF_BACKEND_REGION: "main"
+      TF_BACKEND_ENDPOINT: ${{ secrets.MINIO_ENDPOINT }}
 
     steps:
       - name: Checkout
@@ -31,12 +38,18 @@ jobs:
 
       - name: Terraform init
         working-directory: ./infrastructure/environments/prod
-        run: terraform init -backend=false
+        run: >
+          terraform init
+          -backend-config="bucket=${{ env.TF_BACKEND_BUCKET }}"
+          -backend-config="key=${{ env.TF_BACKEND_KEY }}"
+          -backend-config="region=${{ env.TF_BACKEND_REGION }}"
+          -backend-config="endpoint=${{ env.TF_BACKEND_ENDPOINT }}"
 
       - name: Terraform validate
         working-directory: ./infrastructure/environments/prod
         run: terraform validate
 
       - name: Terraform plan
+        id: plan
         working-directory: ./infrastructure/environments/prod
         run: terraform plan
