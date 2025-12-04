@@ -40,10 +40,10 @@ jobs:
         working-directory: ./infrastructure/environments/prod
         run: >
           terraform init
-          -backend-config='bucket=${{ env.TF_BACKEND_BUCKET }}'
-          -backend-config='key=${{ env.TF_BACKEND_KEY }}'
-          -backend-config='region=${{ env.TF_BACKEND_REGION }}'
-          -backend-config='endpoints={s3="${{ env.TF_BACKEND_ENDPOINT }}"}'
+          -backend-config="bucket=${{ env.TF_BACKEND_BUCKET }}"
+          -backend-config="key=${{ env.TF_BACKEND_KEY }}"
+          -backend-config="region=${{ env.TF_BACKEND_REGION }}"
+          -backend-config="endpoints={s3=\"${{ env.TF_BACKEND_ENDPOINT }}\"}"
 
       - name: Terraform validate
         working-directory: ./infrastructure/environments/prod
@@ -52,4 +52,4 @@ jobs:
       - name: Terraform plan
         id: plan
         working-directory: ./infrastructure/environments/prod
-        run: terraform plan
+        run: terraform plan -no-color
