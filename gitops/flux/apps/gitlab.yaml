@@ -77,6 +77,7 @@ spec:
         backups:
           bucket: gitlab-backups
           tmpBucket: gitlab-tmp
+          keep_time: 604800
 
       ingress:
         configureCertmanager: false
@@ -114,6 +115,15 @@ spec:
             config:
               secret: gitlab-backup-s3cfg
               key: config
+
+          cron:
+            enabled: true
+            schedule: "0 2 * * *"
+            # extraArgs: "--skip registry"
+            suspend: false
+            concurrencyPolicy: Forbid
+            failedJobsHistoryLimit: 1
+            successfulJobsHistoryLimit: 3
 
       webservice:
         minReplicas: 1
