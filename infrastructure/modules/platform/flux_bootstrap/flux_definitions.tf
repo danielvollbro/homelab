@@ -79,6 +79,10 @@ spec:
   path: ./gitops/flux/apps
   prune: true
   wait: true
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
   dependsOn:
     - name: infrastructure-certs
 EOT
