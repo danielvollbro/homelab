@@ -1,0 +1,21 @@
+HTTP/2 302 
+date: Thu, 04 Dec 2025 10:17:56 GMT
+content-type: text/html; charset=utf-8
+content-length: 0
+location: https://git.vollbro.se/users/sign_in
+cache-control: no-cache
+content-security-policy: 
+nel: {"max_age": 0}
+permissions-policy: interest-cohort=()
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+x-download-options: noopen
+x-frame-options: SAMEORIGIN
+x-gitlab-meta: {"correlation_id":"01KBMDWNSNGV5EHRRWXZH11HHC","version":"1"}
+x-permitted-cross-domain-policies: none
+x-request-id: 01KBMDWNSNGV5EHRRWXZH11HHC
+x-runtime: 0.047096
+x-ua-compatible: IE=edge
+x-xss-protection: 1; mode=block
+strict-transport-security: max-age=31536000; includeSubDomains
+
