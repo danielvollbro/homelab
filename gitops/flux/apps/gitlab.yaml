@@ -46,6 +46,7 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
         tls:
           enabled: true
+          secretName: gitlab-gitlab-wildcard-tls
 
       storageClass: freenas-iscsi
     certmanager-issuer:
