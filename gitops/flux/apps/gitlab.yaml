@@ -42,8 +42,6 @@ spec:
       ingress:
         configureCertmanager: false
         class: nginx
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-staging"
         tls:
           enabled: true
           secretName: gitlab-gitlab-wildcard-tls-v2
