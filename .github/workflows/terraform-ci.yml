@@ -43,7 +43,7 @@ jobs:
           -backend-config="bucket=${{ env.TF_BACKEND_BUCKET }}"
           -backend-config="key=${{ env.TF_BACKEND_KEY }}"
           -backend-config="region=${{ env.TF_BACKEND_REGION }}"
-          -backend-config="endpoint=${{ env.TF_BACKEND_ENDPOINT }}"
+          -backend-config="endpoints.s3=${{ env.TF_BACKEND_ENDPOINT }}"
 
       - name: Terraform validate
         working-directory: ./infrastructure/environments/prod
