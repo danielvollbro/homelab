@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gitlab-wildcard-cert
+  namespace: gitlab
+spec:
+  secretName: gitlab-gitlab-wildcard-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: "*.vollbro.se"
+  dnsNames:
+    - "*.vollbro.se"
+    - "vollbro.se"
