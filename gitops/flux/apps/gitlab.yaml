@@ -22,6 +22,19 @@ spec:
   values:
     global:
       edition: ce
+
+      minio:
+        enabled: false
+
+      registry:
+        name: registry.vollbro.se
+        storage:
+          secret: gitlab-minio-connection
+          key: connection
+          extraConfig:
+            redirect:
+              disable: true
+
       hosts:
         domain: vollbro.se
 
@@ -30,15 +43,6 @@ spec:
 
         registry:
           name: registry.vollbro.se
-          storage:
-            secret: gitlab-minio-connection
-            key: connection
-            extraConfig:
-              redirect:
-                disable: true
-
-        minio:
-          enabled: false
 
         kas:
           name: kas.vollbro.se
