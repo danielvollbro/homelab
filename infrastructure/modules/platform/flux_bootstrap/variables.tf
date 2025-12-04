@@ -19,3 +19,9 @@ variable "truenas_api_key" {
   type        = string
   sensitive   = true
 }
+
+variable "cloudflare_token" {
+  description = "Cloudflare API Token for DNS-01"
+  type        = string
+  sensitive   = true
+}

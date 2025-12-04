@@ -39,8 +39,9 @@ module "flux_bootstrap" {
 
   depends_on = [time_sleep.wait_for_network]
 
-  target_path     = "gitops/flux/clusters/prod"
-  github_repo     = var.github_repo
-  age_key_content = file("${path.root}/../../../age.agekey")
-  truenas_api_key = var.truenas_api_key
+  target_path      = "gitops/flux/clusters/prod"
+  github_repo      = var.github_repo
+  age_key_content  = file("${path.root}/../../../age.agekey")
+  truenas_api_key  = var.truenas_api_key
+  cloudflare_token = var.cloudflare_token
 }

@@ -28,3 +28,25 @@ resource "kubernetes_secret" "truenas_apikey" {
 
   depends_on = [flux_bootstrap_git.this]
 }
+
+resource "kubernetes_namespace" "cert_manager" {
+  metadata {
+    name = "cert-manager"
+  }
+  lifecycle {
+    ignore_changes = [metadata]
+  }
+}
+
+resource "kubernetes_secret" "cloudflare_token" {
+  metadata {
+    name      = "cloudflare-api-token-secret"
+    namespace = "cert-manager"
+  }
+
+  data = {
+    api-token = var.cloudflare_token
+  }
+
+  depends_on = [kubernetes_namespace.cert_manager]
+}
