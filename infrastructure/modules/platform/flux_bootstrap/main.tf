@@ -41,7 +41,7 @@ resource "kubernetes_namespace" "cert_manager" {
 resource "kubernetes_secret" "cloudflare_token" {
   metadata {
     name      = "cloudflare-api-token-secret"
-    namespace = "cert-manager"
+    namespace = kubernetes_namespace.gitlab.metadata[0].name
   }
 
   data = {
@@ -49,4 +49,14 @@ resource "kubernetes_secret" "cloudflare_token" {
   }
 
   depends_on = [kubernetes_namespace.cert_manager]
+}
+
+resource "kubernetes_namespace" "gitlab" {
+  metadata {
+    name = "gitlab"
+  }
+
+  lifecycle {
+    ignore_changes = [metadata]
+  }
 }
