@@ -30,14 +30,49 @@ spec:
 
         registry:
           name: registry.vollbro.se
+          storage:
+            secret: gitlab-minio-connection
+            key: connection
+            extraConfig:
+              redirect:
+                disable: true
 
         minio:
-          name: minio.vollbro.se
+          enabled: false
 
         kas:
           name: kas.vollbro.se
 
         https: true
+
+      appConfig:
+        object_store:
+          enabled: true
+          proxy_download: true
+
+          connection:
+            secret: gitlab-minio-connection
+            key: connection
+
+          objects:
+            artifacts:
+              bucket: gitlab-artifacts
+            lfs:
+              bucket: gitlab-lfs
+            uploads:
+              bucket: gitlab-uploads
+            packages:
+              bucket: gitlab-packages
+            dependencyProxy:
+              bucket: gitlab-dependency-proxy
+            terraformState:
+              bucket: gitlab-terraform-state
+            pages:
+              bucket: gitlab-pages
+
+        backups:
+          bucket: gitlab-backups
+          tmpBucket: gitlab-tmp
 
       ingress:
         configureCertmanager: false
