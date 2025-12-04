@@ -32,7 +32,7 @@ spec:
           name: registry.vollbro.se
 
         minio:
-          name: minio.vollbro.se
+          name: gitlab-minio.vollbro.se
 
         kas:
           name: kas.vollbro.se
