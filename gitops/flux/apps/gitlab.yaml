@@ -48,3 +48,31 @@ spec:
       install: true
     redis:
       install: true
+
+    gitlab:
+      webservice:
+        minReplicas: 1
+        maxReplicas: 1
+        replicaCount: 1
+        resources:
+          requests:
+            memory: 800Mi
+            cpu: 300m
+          limits:
+            memory: 3Gi
+
+      sidekiq:
+        minReplicas: 1
+        maxReplicas: 1
+        resources:
+          requests:
+            memory: 500Mi
+            cpu: 200m
+
+      gitlab-shell:
+        minReplicas: 1
+        maxReplicas: 1
+        resources:
+          requests:
+            memory: 100Mi
+            cpu: 50m
