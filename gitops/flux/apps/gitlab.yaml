@@ -46,7 +46,7 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-staging"
         tls:
           enabled: true
-          secretName: gitlab-gitlab-wildcard-tls
+          secretName: gitlab-gitlab-wildcard-tls-v2
 
       storageClass: freenas-iscsi
     certmanager-issuer:

@@ -4,7 +4,7 @@ metadata:
   name: gitlab-wildcard-cert
   namespace: gitlab
 spec:
-  secretName: gitlab-gitlab-wildcard-tls
+  secretName: gitlab-gitlab-wildcard-tls-v2
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
