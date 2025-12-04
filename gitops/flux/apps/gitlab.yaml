@@ -26,16 +26,16 @@ spec:
         domain: vollbro.se
 
         gitlab:
-          name: git
+          name: git.vollbro.se
 
         registry:
-          name: registry
+          name: registry.vollbro.se
 
         minio:
-          name: minio
+          name: minio.vollbro.se
 
         kas:
-          name: kas
+          name: kas.vollbro.se
 
         https: true
 
