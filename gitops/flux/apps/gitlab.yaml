@@ -23,7 +23,20 @@ spec:
     global:
       edition: ce
       hosts:
-        domain: git.vollbro.se
+        domain: vollbro.se
+
+        gitlab:
+          name: git
+
+        registry:
+          name: registry
+
+        minio:
+          name: minio
+
+        kas:
+          name: kas
+
         https: true
 
       ingress:
