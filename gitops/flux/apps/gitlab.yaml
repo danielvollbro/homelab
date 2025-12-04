@@ -107,6 +107,14 @@ spec:
       install: true
 
     gitlab:
+      toolbox:
+        replicas: 1
+        backups:
+          objectStorage:
+            config:
+              secret: gitlab-minio-connection
+              key: connection
+
       webservice:
         minReplicas: 1
         maxReplicas: 1
