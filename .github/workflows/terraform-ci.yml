@@ -4,12 +4,12 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'terraform/**'
+      - 'infrastructure/**'
       - '.github/workflows/terraform-ci.yml'
   pull_request:
     branches: [ main ]
     paths:
-      - 'terraform/**'
+      - 'infrastructure/**'
       - '.github/workflows/terraform-ci.yml'
 
 jobs:
@@ -26,17 +26,17 @@ jobs:
           terraform_version: 1.14.0
 
       - name: Terraform fmt
-        working-directory: ./terraform
+        working-directory: ./infrastructure
         run: terraform fmt -check -recursive
 
       - name: Terraform init
-        working-directory: ./terraform/environments/prod
+        working-directory: ./infrastructure/environments/prod
         run: terraform init -backend=false
 
       - name: Terraform validate
-        working-directory: ./terraform/environments/prod
+        working-directory: ./infrastructure/environments/prod
         run: terraform validate
 
       - name: Terraform plan
-        working-directory: ./terraform/environments/prod
+        working-directory: ./infrastructure/environments/prod
         run: terraform plan
