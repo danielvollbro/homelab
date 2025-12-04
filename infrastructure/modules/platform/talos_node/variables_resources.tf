@@ -1,12 +1,12 @@
 variable "res_cpu_cores" {
   type        = number
-  default     = 2
+  default     = 4
   description = "The amount of CPU cores that will be allocated to the node."
 }
 
 variable "res_dedicated_memory" {
   type        = number
-  default     = 4096
+  default     = 8192
   description = "The amount of dedicated memory (in MB) that will be allocated to the node."
 }
 
