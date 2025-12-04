@@ -60,6 +60,10 @@ spec:
       enabled: false
     gitlab-runner:
       install: true
+      # TODO: This should be removed once we are live
+      envVars:
+        - name: GIT_SSL_NO_VERIFY
+          value: "true"
     postgresql:
       install: true
     redis:
