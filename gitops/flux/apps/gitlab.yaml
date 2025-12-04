@@ -112,7 +112,7 @@ spec:
         backups:
           objectStorage:
             config:
-              secret: gitlab-minio-connection
+              secret: gitlab-backup-s3cfg
               key: connection
 
       webservice:
