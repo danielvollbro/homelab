@@ -5,6 +5,7 @@ metadata:
     namespace: flux-system
 spec:
     interval: ENC[AES256_GCM,data:CQs=,iv:CB7WX5yB3tHSbu8XG6RG+gza0q2PKB5Qc1gPuBuk0XU=,tag:WxDZpgXqY0QaFR//QvV5lg==,type:str]
+    timeout: ENC[AES256_GCM,data:8I57,iv:OhkzCZJ7fwvWccTtyv8XoO41WVNu+iiRTLxUjStdWp4=,tag:e3WHvRUeclo93J3db00A1w==,type:str]
     chart:
         spec:
             chart: ENC[AES256_GCM,data:6kbTMzFvYgfqIMuD90o=,iv:SIuAHGq6WGvT+dc5hTLPX/piYJGo3YPcTS1PqxGtE1M=,tag:WVe/XdBszD3m2GOYg/G7hQ==,type:str]
@@ -99,7 +100,7 @@ sops:
             WjhkSmdYVFpEUU0wdkFRTlRHQUlFdnMKCcQeaNV5DlERAZDJfwiI4nLkHoE4+T2u
             n/94icSXZ2oeOpYq8d3HRQO5bDM2eg3C5gIKoob2U4WyoW48L5hlVg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-12-03T21:41:14Z"
-    mac: ENC[AES256_GCM,data:B4zmCXXMnXWH0HY4P3/5+z/lIPv2jxvvXn1k9BpEwUr0PN+xXbgvM+J+EgpMZ0zvaAymd9jNlCpwiDDSri89S4lKCx6OV5ZzCkkPPKntQvwEGhw8GDTqx2UmQ12HBUYuapR46eqNUbtcAKa5qVy3k9ZhnpiqfxFO2ROmN2FI/Yg=,iv:OPKfRcJm5911s8Dg/VLdl9n3qnY4sK6Zzu5dweTACpY=,tag:1/RnMJmJ9Cmb6RoRA8k73A==,type:str]
+    lastmodified: "2025-12-05T08:11:51Z"
+    mac: ENC[AES256_GCM,data:Ka+eBwNqpaTbvH+z+do4Ntza8adrhHmn5j0hn1kb9TocpuMPJgiVu9yn4+UZ7toIw7Wh70Uo8xdVAbOZxPCxJXmKLT5DOWCkuwNI5xGLNUnpldVhjY3RPrQej8JtHX8cQjmHguNX4Yqq/BluV42YRmrQ2Efjr5iWR0p1kQKg5+E=,iv:NVqJrYQ1NRYNMLAroDw1pgKSddXCwZfU0Gr6o9UzcgA=,tag:WEsOkUA4LZIMKhdLjqWwog==,type:str]
     encrypted_regex: ^(data|stringData|spec)$
     version: 3.11.0
