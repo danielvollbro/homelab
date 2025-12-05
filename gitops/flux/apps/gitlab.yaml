@@ -106,10 +106,7 @@ spec:
           secretName: gitlab-gitlab-wildcard-tls-v2
 
       storageClass: freenas-iscsi
-    gitlab:
-      gitlab-shell:
-        service:
-          type: ClusterIP
+
     certmanager-issuer:
       email: "wollbro90@gmail.com"
 
@@ -164,6 +161,8 @@ spec:
             cpu: 200m
 
       gitlab-shell:
+        service:
+          type: ClusterIP
         minReplicas: 1
         maxReplicas: 1
         resources:
