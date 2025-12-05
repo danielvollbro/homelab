@@ -41,7 +41,7 @@ resource "kubernetes_namespace" "cert_manager" {
 resource "kubernetes_secret" "cloudflare_token" {
   metadata {
     name      = "cloudflare-api-token-secret"
-    namespace = kubernetes_namespace.gitlab.metadata[0].name
+    namespace = kubernetes_namespace.cert_manager.metadata[0].name
   }
 
   data = {
