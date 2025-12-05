@@ -23,7 +23,7 @@ spec:
 
   values:
     tcp:
-      22: "gitlab/gitlab-gitlab-gitlab-shell:22"
+      "22": "gitlab/gitlab-gitlab-gitlab-shell:22"
 
     controller:
       service:
@@ -33,7 +33,7 @@ spec:
         annotations:
           io.cilium/lb-ipam-pool: "prod-pool"
 
-        targetPorts:
+        ports:
           http: 80
           https: 443
           ssh: 22
