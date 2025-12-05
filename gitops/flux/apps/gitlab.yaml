@@ -120,6 +120,8 @@ spec:
       install: true
     redis:
       install: true
+    registry:
+        enabled: false
 
     gitlab:
       toolbox:
