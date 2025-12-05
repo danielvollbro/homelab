@@ -53,6 +53,9 @@ spec:
             redirect:
               disable: true
 
+      shell:
+        port: 22
+
       hosts:
         domain: vollbro.se
         ssh: git.vollbro.se
