@@ -23,6 +23,24 @@ spec:
     global:
       edition: ce
 
+      email:
+        from: "wollbro90@gmail.com"
+        display_name: "GitLab Homelab"
+        reply_to: "no-reply@git.vollbro.se"
+
+      smtp:
+        enabled: true
+        address: "smtp.gmail.com"
+        port: 587
+        user_name: "wollbro90@gmail.com"
+        password:
+          secret: "gitlab-smtp-password"
+          key: "password"
+        domain: "smtp.gmail.com"
+        authentication: "login"
+        starttls_auto: true
+        openssl_verify_mode: "peer"
+
       minio:
         enabled: false
 
