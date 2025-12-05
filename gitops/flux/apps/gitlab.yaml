@@ -55,6 +55,7 @@ spec:
 
       hosts:
         domain: vollbro.se
+        ssh: git.vollbro.se
 
         gitlab:
           name: git.vollbro.se
@@ -105,6 +106,10 @@ spec:
           secretName: gitlab-gitlab-wildcard-tls-v2
 
       storageClass: freenas-iscsi
+    gitlab:
+      gitlab-shell:
+        service:
+          type: ClusterIP
     certmanager-issuer:
       email: "wollbro90@gmail.com"
 
