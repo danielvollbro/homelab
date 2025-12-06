@@ -121,7 +121,6 @@ spec:
       enabled: false
     gitlab-runner:
       install: true
-      secret: gitlab-runner-secret
       unregisterRunners: false
     postgresql:
       install: true
