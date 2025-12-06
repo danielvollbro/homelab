@@ -19,7 +19,7 @@ checkov_scan:
     name: bridgecrew/checkov:3.2.495
     entrypoint: [""]
   script:
-    - checkov -d . --framework terraform,kubernetes,helm --soft-fail
+    - checkov -d . --framework terraform,kubernetes,helm --soft-fail -o junitxml | tee checkov_reports.xml
   artifacts:
     when: always
     paths:
