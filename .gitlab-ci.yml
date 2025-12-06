@@ -12,3 +12,18 @@ terraform_validate:
     - terraform init -backend=false
     - terraform validate
     - terraform fmt -check -recursive ../../
+
+checkov_scan:
+  stage: security
+  image:
+    name: bridgecrew/checkov:3.2.495
+    entrypoint: [""]
+  script:
+    - checkov -d . --framework terraform,kubernetes,helm --soft-fail
+
+artifacts:
+  when: always
+  paths:
+    - checkov_reports.xml
+  reports:
+    junit: checkov_reports.xml
