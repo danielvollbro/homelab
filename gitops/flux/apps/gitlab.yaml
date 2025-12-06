@@ -123,6 +123,7 @@ spec:
       install: true
       secret: gitlab-gitlab-gitlab-runner-secret
       unregisterRunners: false
+      requestConcurrency: 2
     postgresql:
       install: true
     redis:
