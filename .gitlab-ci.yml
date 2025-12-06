@@ -1,0 +1,14 @@
+stages:
+  - validate
+  - security
+
+terraform_validate:
+  stage: validate
+  image:
+    name: hashicorp/terraform:1.14
+    entrypoint: [""]
+  script:
+    - cd infrastructure/environments/prod
+    - terraform init -backend=false
+    - terraform validate
+    - terraform fmt -check -recursive ../../
