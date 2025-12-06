@@ -20,10 +20,9 @@ checkov_scan:
     entrypoint: [""]
   script:
     - checkov -d . --framework terraform,kubernetes,helm --soft-fail
-
-artifacts:
-  when: always
-  paths:
-    - checkov_reports.xml
-  reports:
-    junit: checkov_reports.xml
+  artifacts:
+    when: always
+    paths:
+      - checkov_reports.xml
+    reports:
+      junit: checkov_reports.xml
