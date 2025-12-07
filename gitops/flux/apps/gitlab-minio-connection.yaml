@@ -1,23 +1,23 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: gitlab-minio-connection
-    namespace: gitlab
+  name: gitlab-minio-connection
+  namespace: gitlab
 type: Opaque
 stringData:
-    connection: ENC[AES256_GCM,data:jjctZYz+Qhg1uydkMKCliMnOuvlgj4BjPxmbHwAjsg4q2rHasodgx9EdWpQl2+tsCFk7W19hVSJ1odxXOFbeVeuZX/Tzh4R9xyQFaUzyyUMBQuqdqijXZdrN33oYzlnBL7O0u/rk/ktjNWPJPukNZV7nUrCUXc295Q6R5Gh15r539VKDFsqos3f68o+G49EEhIKdQpJ3QgVwBg4rqxb9/A==,iv:AJiX0a8bFMsMOqsIG8UKfnsUmZW8ihMxTLReN1OeuQg=,tag:9PDw3NAqKWWnVS+YV2/3hg==,type:str]
+  connection: ENC[AES256_GCM,data:jjctZYz+Qhg1uydkMKCliMnOuvlgj4BjPxmbHwAjsg4q2rHasodgx9EdWpQl2+tsCFk7W19hVSJ1odxXOFbeVeuZX/Tzh4R9xyQFaUzyyUMBQuqdqijXZdrN33oYzlnBL7O0u/rk/ktjNWPJPukNZV7nUrCUXc295Q6R5Gh15r539VKDFsqos3f68o+G49EEhIKdQpJ3QgVwBg4rqxb9/A==,iv:AJiX0a8bFMsMOqsIG8UKfnsUmZW8ihMxTLReN1OeuQg=,tag:9PDw3NAqKWWnVS+YV2/3hg==,type:str]
 sops:
-    age:
-        - recipient: age1f70m834v0d5scfgvur7kakl06dvgdctafh64xc2p3xssu2msr9tq3pyfe7
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBNUTBna0ZlQWZFT3Vha0hU
-            b2VTVmNvNURWd2NvWG5ucjEwSExPdkZzQVY4CkljRmhjbEZVQ2dvd1ZNL3Fwa3lr
-            UTQ5eXF5WSt2Y29sUTk1NkN5ZWpsUHMKLS0tIGhxNURaQnlzSXU2RTBWNXBiM05h
-            cVFXSVZORENZWUQ0S1BZUjgrRmxLWGsKaxjL8WhoOZXBImnyAbd+AJjKfLDWMfYa
-            vnrMDdVBtq6JTzAcYP6JrQgeFqf1DlB1OTwm9muJTZXPvAATBd0XgA==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-12-04T20:56:44Z"
-    mac: ENC[AES256_GCM,data:X26sfmZLtW58psnMvaRCOeYF+tRv6y3E5cdpS9EZNaZ2wM/2yEaWzveudj4p5JPctrpFPw/DvTgJzQiP4dgC136E8yrlulV8Rdf90/tbtlKAOql52ir+QnfLefnLWpcbPbnhwsNwmv4P/uddl51jkfchtouyiGJY6gi0icRmmeU=,iv:TUe2zcRhcWialDjWkiF+DrRdstS6y/YejgDo0ow3pPk=,tag:jJH5caepVjLZBhtkgRW98g==,type:str]
-    encrypted_regex: ^(data|stringData|spec)$
-    version: 3.11.0
+  age:
+    - recipient: age1f70m834v0d5scfgvur7kakl06dvgdctafh64xc2p3xssu2msr9tq3pyfe7
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBNUTBna0ZlQWZFT3Vha0hU
+        b2VTVmNvNURWd2NvWG5ucjEwSExPdkZzQVY4CkljRmhjbEZVQ2dvd1ZNL3Fwa3lr
+        UTQ5eXF5WSt2Y29sUTk1NkN5ZWpsUHMKLS0tIGhxNURaQnlzSXU2RTBWNXBiM05h
+        cVFXSVZORENZWUQ0S1BZUjgrRmxLWGsKaxjL8WhoOZXBImnyAbd+AJjKfLDWMfYa
+        vnrMDdVBtq6JTzAcYP6JrQgeFqf1DlB1OTwm9muJTZXPvAATBd0XgA==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-12-07T08:05:01Z"
+  mac: ENC[AES256_GCM,data:6U7vuFcliP0jpfzuNxs3jnAx8v1hWuH1wN1B0iEOLJJiWnDvfs5h+9tIrPLyZWAwkrOXx211AqCaLkEcW71V8X71cHJSrMxJ6pS7+9YxS3qRvA57r+YkI/g3GF2ltduBo3SwlHdZNk0D60E1KoUcGi/JjHBwkndn+M/PBBQcm6g=,iv:cDp2we/pdvPhxo0Z9jHj6afpwiBGoZIiT30sVIowkzw=,tag:5k0P5+Tpood2mcUmlM3IDA==,type:str]
+  encrypted_regex: ^(data|stringData|spec)$
+  version: 3.11.0

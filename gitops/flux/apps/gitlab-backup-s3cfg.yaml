@@ -1,23 +1,23 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: gitlab-backup-s3cfg
-    namespace: gitlab
+  name: gitlab-backup-s3cfg
+  namespace: gitlab
 type: Opaque
 stringData:
-    config: ENC[AES256_GCM,data:lLMPLCAPbYgbCTvjFCE9hVGUMxl6hCHZuFJkHYGdxXXYpvD8aOSdEf8/VfRaQA84J8Tpwwsg6deJM/devWQ1MTDS21aEXENEIETCMVlz02nL29qB2kAhQxNHZ2hVO+BDVGuEQRvuyYItXk4xKKkxCNwrqsLvTCl48yV//FWgdl0D5NQbpuU0mQ+/37PuSfp5rP9Yx3otgHdY+jhTBK0yS+vxN4OSCcFt/bG5JDw4rLdGPsliPWbgKlLPHD9Ya+6e7OVHyf11REvgk1MWGvAA/AHE76zYrxLoAairKSqazrMMishNm1a5loUOBJ00I1ZFONt0HQ==,iv:oWUtcrZX4tXyKnzKBiXTgK+IK2rDk8dCmVsaZ1xuBDM=,tag:/uEDSHuo+HGq0bPiYMLP5A==,type:str]
+  config: ENC[AES256_GCM,data:lLMPLCAPbYgbCTvjFCE9hVGUMxl6hCHZuFJkHYGdxXXYpvD8aOSdEf8/VfRaQA84J8Tpwwsg6deJM/devWQ1MTDS21aEXENEIETCMVlz02nL29qB2kAhQxNHZ2hVO+BDVGuEQRvuyYItXk4xKKkxCNwrqsLvTCl48yV//FWgdl0D5NQbpuU0mQ+/37PuSfp5rP9Yx3otgHdY+jhTBK0yS+vxN4OSCcFt/bG5JDw4rLdGPsliPWbgKlLPHD9Ya+6e7OVHyf11REvgk1MWGvAA/AHE76zYrxLoAairKSqazrMMishNm1a5loUOBJ00I1ZFONt0HQ==,iv:oWUtcrZX4tXyKnzKBiXTgK+IK2rDk8dCmVsaZ1xuBDM=,tag:/uEDSHuo+HGq0bPiYMLP5A==,type:str]
 sops:
-    age:
-        - recipient: age1f70m834v0d5scfgvur7kakl06dvgdctafh64xc2p3xssu2msr9tq3pyfe7
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBCSDlPWXlUUTJjZjZyTmpY
-            OHpQY0E2Q09KZGFHaFJ5VmNtT1pjOWVodmxJClgvYzMzK2tKcXYvRmlmRUNsSXR3
-            YzdEU0ZJSkhpRTJOeTIvM0hJQzNCbUUKLS0tIG13d3JMUTVLakpCeVNCZ2x5NThZ
-            VFRKNmV6c3g4ZkMzc2NhTGZjalpwSEUKpmYx3y4tuwQ9yyDGDCAtG1+oNK0lmvqa
-            eLLJtrB/TRddtGzapaEDzit5ie8eITM71mGrlcScp5BmGdEkNcq+1A==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-12-04T22:17:23Z"
-    mac: ENC[AES256_GCM,data:2mjLJjfAJk5kWSCr/N6udKUdCiQPfG8nWsrp//YYDQiTANOzcE7xC63Vjat9Nb7ZTwICZ2/JohKcioOWfcn6MpD4Ab6gmGSxPT9vbRg3b0l6IA3CBjkXpChQSu6xlw5B/TQzfwd0xdrW54eLlie4ESXqrUS/5LhARFlZwCmCOCg=,iv:fVmsGOqj+izcvcj+0vclh9LJpuRxw2eCDUp7eMYP/pk=,tag:I95AGAw01NAZB30UvKCG8A==,type:str]
-    encrypted_regex: ^(data|stringData|spec)$
-    version: 3.11.0
+  age:
+    - recipient: age1f70m834v0d5scfgvur7kakl06dvgdctafh64xc2p3xssu2msr9tq3pyfe7
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBCSDlPWXlUUTJjZjZyTmpY
+        OHpQY0E2Q09KZGFHaFJ5VmNtT1pjOWVodmxJClgvYzMzK2tKcXYvRmlmRUNsSXR3
+        YzdEU0ZJSkhpRTJOeTIvM0hJQzNCbUUKLS0tIG13d3JMUTVLakpCeVNCZ2x5NThZ
+        VFRKNmV6c3g4ZkMzc2NhTGZjalpwSEUKpmYx3y4tuwQ9yyDGDCAtG1+oNK0lmvqa
+        eLLJtrB/TRddtGzapaEDzit5ie8eITM71mGrlcScp5BmGdEkNcq+1A==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-12-07T08:04:38Z"
+  mac: ENC[AES256_GCM,data:NkmYNIYB+v0Ih5xdtMSdbj0xI7NGLjz9rKC8iSfsH7Bny4NsULFGuSZdrrYIW+Cdv3JCfZLKxBsiWeJXgZbdUyAA8Irxsm8ylofNK6cRFvz+3U+sYtuO5Ujbc/UcTgk+5NHNSeu0XsumCHMjFBavz/xiFQZ/inqMCelXWFQYobw=,iv:OW0JTwBNaFl5secciFA44TiZlZcd/GTvyJShHFGLmeA=,tag:xeOpGt7CYeL5o3oQ16nZ5Q==,type:str]
+  encrypted_regex: ^(data|stringData|spec)$
+  version: 3.11.0
