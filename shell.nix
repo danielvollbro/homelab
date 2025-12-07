@@ -12,6 +12,7 @@ pkgs.mkShell {
     sops
     pre-commit
     gitleaks
+    gitlint
   ];
 
   shellHook = ''

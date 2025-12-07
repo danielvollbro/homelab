@@ -1,0 +1,20 @@
+[general]
+contrib = contrib-title-conventional-commits
+
+[title-max-length]
+line-length=50
+
+[title-min-length]
+min-length=5
+
+[title-must-not-contain-word]
+words=wip
+
+[body-max-line-length]
+line-length=72
+
+[body-min-length]
+min-length=5
+
+[contrib-title-conventional-commits]
+types = fix,feat,chore,docs,style,refactor,perf,test,revert,ci,build
