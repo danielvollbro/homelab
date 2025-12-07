@@ -2,38 +2,7 @@ stages:
   - validate
   - security
 
-terraform_validate:
-  stage: validate
-  image:
-    name: hashicorp/terraform:1.14
-    entrypoint: [""]
-  script:
-    - cd infrastructure/environments/prod
-    - terraform init -backend=false
-    - terraform validate
-    - terraform fmt -check -recursive ../../
-
-kubeconform:
-  stage: validate
-  image:
-    name: ghcr.io/yannh/kubeconform:v0.7.0-alpine
-    entrypoint: [""]
-  script:
-    - /kubeconform -summary -ignore-missing-schemas gitops/
-
-checkov_scan:
-  stage: security
-  image:
-    name: bridgecrew/checkov:3.2.495
-    entrypoint: [""]
-  script:
-    - checkov -d .
-      --framework terraform,kubernetes,helm
-      --skip-path gitops/flux/clusters/prod/flux-system
-      -o junitxml | tee checkov_reports.xml
-  artifacts:
-    when: always
-    paths:
-      - checkov_reports.xml
-    reports:
-      junit: checkov_reports.xml
+include:
+  - local: '.gitlab/ci/terraform.yml'
+  - local: '.gitlab/ci/kubeconform.yml'
+  - local: '.gitlab/ci/checkov.yml'
