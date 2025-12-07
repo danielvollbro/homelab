@@ -1,24 +1,26 @@
 apiVersion: cilium.io/v2alpha1
 kind: CiliumLoadBalancerIPPool
 metadata:
-    name: prod-pool
-    namespace: kube-system
+  name: prod-pool
+  namespace: kube-system
+  annotations:
+    checkov.io/skip1: CKV_K8S_21=False positive. Namespace is defined but Checkov fails to parse SOPS file.
 spec:
-    blocks:
-        - start: ENC[AES256_GCM,data:JcT0Roct0BBShZ1edgA=,iv:7Q8pZq9o+5XtSCeTFsy8LgTt2txVa7EMaia3QhPLkBw=,tag:N1MEPCskOeXtBIu18mTdWA==,type:str]
-          stop: ENC[AES256_GCM,data:59L71wrJSdjoL8iuhIo=,iv:9UrqDwREMPgAp9jRNQejN0gZ3mQT11Ne24MCJfXK/6o=,tag:S9gQYIUVn50aisvoPO0r8A==,type:str]
+  blocks:
+    - start: ENC[AES256_GCM,data:JcT0Roct0BBShZ1edgA=,iv:7Q8pZq9o+5XtSCeTFsy8LgTt2txVa7EMaia3QhPLkBw=,tag:N1MEPCskOeXtBIu18mTdWA==,type:str]
+      stop: ENC[AES256_GCM,data:59L71wrJSdjoL8iuhIo=,iv:9UrqDwREMPgAp9jRNQejN0gZ3mQT11Ne24MCJfXK/6o=,tag:S9gQYIUVn50aisvoPO0r8A==,type:str]
 sops:
-    age:
-        - recipient: age1f70m834v0d5scfgvur7kakl06dvgdctafh64xc2p3xssu2msr9tq3pyfe7
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBQTVlZNFZpRzRMZHhldEFn
-            Q1I4TGFRUENnUUMyVW5JWFo4eFU5anlpSWlvCmh1K3YzWTI2Q1dDTlZhMHcydTJ5
-            clZZeUIwRU9aRWJjOEo0b2NBaTZWNXMKLS0tIFBkbE1tcElrUFpicG5DZkE3Qmt3
-            c0ZYMi9jazhFNEpuVURRdTJhSUlBZ0EKKhEvDPT3F4oLb31s9kK9NHvkpjbB0e1o
-            A5m28BwdULZOILMN1okKKYbMRhyvumVqi3ODdAoWM6rcENGQ64+wgw==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-12-01T20:32:53Z"
-    mac: ENC[AES256_GCM,data:ib3wR5gyLBZ1jjvBUJuaG5VjrlVSy+hs+aY+R/UcvPybs1y7Ng/3HwnETzsy5LfkZMMl0I7LhHUkIj9oMt3yiEcMFMrHn8QJrYgOMNzpscn+kH2/ZWw240WJTPbfyaOiZe85Y9qnH2lk9jO8e7sAXRc4n8kJhF8Ne/eoSxTX3Ss=,iv:OMjGb2Z/ADE5vIPK5eR6gMy7aRFftO0L/I50SxTTXOw=,tag:tvOSrOFtFSWTxc16qLnDgQ==,type:str]
-    encrypted_regex: ^(data|stringData|spec)$
-    version: 3.11.0
+  age:
+    - recipient: age1f70m834v0d5scfgvur7kakl06dvgdctafh64xc2p3xssu2msr9tq3pyfe7
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBQTVlZNFZpRzRMZHhldEFn
+        Q1I4TGFRUENnUUMyVW5JWFo4eFU5anlpSWlvCmh1K3YzWTI2Q1dDTlZhMHcydTJ5
+        clZZeUIwRU9aRWJjOEo0b2NBaTZWNXMKLS0tIFBkbE1tcElrUFpicG5DZkE3Qmt3
+        c0ZYMi9jazhFNEpuVURRdTJhSUlBZ0EKKhEvDPT3F4oLb31s9kK9NHvkpjbB0e1o
+        A5m28BwdULZOILMN1okKKYbMRhyvumVqi3ODdAoWM6rcENGQ64+wgw==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-12-07T08:22:09Z"
+  mac: ENC[AES256_GCM,data:WM7gFGJ9orvrlVKCUcFzbgbITXS4YYmrB1UrA0/dSlvA1aiHjyl0DAjBFjZktWKFwc9jsgXgkBq/jgMx4+Cgd/46CSpJFN2UKw8CrS34kEHcy63Q1+kpWB+gQ91J/GQOGc5eCww8RtBYaBQbG/u+yGg4kFOgqUgcQJC2H0VSDXU=,iv:Di7zAALq8ptfzX6hJtQEY313f3PdgGTSCo1Xnby79Dc=,tag:FwV7x3YUYZ0UJmEs5Mou8w==,type:str]
+  encrypted_regex: ^(data|stringData|spec)$
+  version: 3.11.0

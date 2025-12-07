@@ -8,3 +8,7 @@ creation_rules:
     encrypted_regex: "^(data|stringData|spec)$"
     age: >-
       age1f70m834v0d5scfgvur7kakl06dvgdctafh64xc2p3xssu2msr9tq3pyfe7
+
+stores:
+  yaml:
+    indent: 2
