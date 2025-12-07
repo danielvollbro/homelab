@@ -10,6 +10,8 @@ pkgs.mkShell {
     helm
     age
     sops
+    pre-commit
+    gitleaks
   ];
 
   shellHook = ''
