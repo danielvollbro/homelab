@@ -1,5 +1,6 @@
 apiVersion: v1
 kind: Secret
+# checkov:skip=CKV_K8S_21:False positive. Namespace is defined but Checkov fails to parse SOPS file.
 metadata:
   name: gitlab-minio-connection
   namespace: gitlab
@@ -17,7 +18,7 @@ sops:
         cVFXSVZORENZWUQ0S1BZUjgrRmxLWGsKaxjL8WhoOZXBImnyAbd+AJjKfLDWMfYa
         vnrMDdVBtq6JTzAcYP6JrQgeFqf1DlB1OTwm9muJTZXPvAATBd0XgA==
         -----END AGE ENCRYPTED FILE-----
-  lastmodified: "2025-12-07T08:05:01Z"
-  mac: ENC[AES256_GCM,data:6U7vuFcliP0jpfzuNxs3jnAx8v1hWuH1wN1B0iEOLJJiWnDvfs5h+9tIrPLyZWAwkrOXx211AqCaLkEcW71V8X71cHJSrMxJ6pS7+9YxS3qRvA57r+YkI/g3GF2ltduBo3SwlHdZNk0D60E1KoUcGi/JjHBwkndn+M/PBBQcm6g=,iv:cDp2we/pdvPhxo0Z9jHj6afpwiBGoZIiT30sVIowkzw=,tag:5k0P5+Tpood2mcUmlM3IDA==,type:str]
+  lastmodified: "2025-12-07T08:08:08Z"
+  mac: ENC[AES256_GCM,data:aocCFc46Untf95NXdS8wSC1mpaELNwPYdtMY+bDxe5TQGsSde3YEvFamiAvZnF80Fnz0XR+NqZiQCV5O2IOCJE6m8DF+tYpLIuetZ84xfhUk3QLjPI9I8clW8eyKwj1FHo/xPe+FKY0hJz9ZGxrGPH6e79Cm2mfSHRtxbluZa8w=,iv:BYGIrF/2E/64GQMNO13TzrfRgoYkA0bHVpiWbx6SQS4=,tag:zAFD+Ca2Aftwz7yAU0CqbQ==,type:str]
   encrypted_regex: ^(data|stringData|spec)$
   version: 3.11.0

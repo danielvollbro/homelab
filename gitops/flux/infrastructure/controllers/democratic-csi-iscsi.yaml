@@ -1,5 +1,6 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
+# checkov:skip=CKV_K8S_21:False positive. Namespace is defined but Checkov fails to parse SOPS file.
 metadata:
   name: democratic-csi-iscsi
   namespace: flux-system
@@ -100,7 +101,7 @@ sops:
         WjhkSmdYVFpEUU0wdkFRTlRHQUlFdnMKCcQeaNV5DlERAZDJfwiI4nLkHoE4+T2u
         n/94icSXZ2oeOpYq8d3HRQO5bDM2eg3C5gIKoob2U4WyoW48L5hlVg==
         -----END AGE ENCRYPTED FILE-----
-  lastmodified: "2025-12-07T08:06:29Z"
-  mac: ENC[AES256_GCM,data:BPXreuf3SIXRaFuXQs8t3tZz5c7wUJYQ2ZwR6SM2FoMgach3WA6vwSddTJivP+OZw2+eOGqnV7okYuxpqWLKzKyIa3j15g2jq58vGN97/XThMtW3Np6Any6Zx06TJaJCZFmgizb0x0pa2eQGRJmNO6gLrAVlVrZIAfIFnXu08o8=,iv:dvjRcDcHSCSpaDJAPAh6RluSxO9iYPK1AQCkrXVfhVs=,tag:vfPzK7TAq5D2ePjfyT+BSg==,type:str]
+  lastmodified: "2025-12-07T08:09:54Z"
+  mac: ENC[AES256_GCM,data:VvCGdD3aA+ckO/QB0K7rVm7UCKsmCD/cmU7g2WV1hMUyP3rZsG901k+/ODclXssbUkZIGnVaM9ZC/V/b6ShgiWyXLQB9eLYGV4WYisR2Vq+k62GrK+FbPhWYP63dwYE20PVTzb7HdJ1POBdiX37mPLgwZ0CcgF5WAtVhyzHu1vQ=,iv:jPfiU+TMbgS9pKIEd+HVvrL6DYGuIvFcIHvgBIpQ4eQ=,tag:oR4lp6jl85PumjT7z9zoKQ==,type:str]
   encrypted_regex: ^(data|stringData|spec)$
   version: 3.11.0
