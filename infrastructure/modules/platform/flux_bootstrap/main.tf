@@ -7,6 +7,9 @@ resource "kubernetes_secret" "sops_age" {
   metadata {
     name      = "sops-age"
     namespace = "flux-system"
+    annotations = {
+      "checkov.io/skip1" = "CKV_K8S_21=False positive. Namespace is defined but Checkov fails to parse SOPS file."
+    }
   }
 
   data = {
@@ -20,6 +23,9 @@ resource "kubernetes_secret" "truenas_apikey" {
   metadata {
     name      = "truenas-apikey"
     namespace = "kube-system"
+    annotations = {
+      "checkov.io/skip1" = "CKV_K8S_21=False positive. Namespace is defined but Checkov fails to parse SOPS file."
+    }
   }
 
   data = {
@@ -42,6 +48,9 @@ resource "kubernetes_secret" "cloudflare_token" {
   metadata {
     name      = "cloudflare-api-token-secret"
     namespace = kubernetes_namespace.cert_manager.metadata[0].name
+    annotations = {
+      "checkov.io/skip1" = "CKV_K8S_21=False positive. Namespace is defined but Checkov fails to parse SOPS file."
+    }
   }
 
   data = {
