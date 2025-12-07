@@ -1,9 +1,10 @@
 apiVersion: cilium.io/v2alpha1
 kind: CiliumLoadBalancerIPPool
-# checkov:skip=CKV_K8S_21:False positive. Namespace is defined but Checkov fails to parse SOPS file.
 metadata:
   name: prod-pool
   namespace: kube-system
+  annotations:
+    checkov.io/skip1: CKV_K8S_21=False positive. Namespace is defined but Checkov fails to parse SOPS file.
 spec:
   blocks:
     - start: ENC[AES256_GCM,data:JcT0Roct0BBShZ1edgA=,iv:7Q8pZq9o+5XtSCeTFsy8LgTt2txVa7EMaia3QhPLkBw=,tag:N1MEPCskOeXtBIu18mTdWA==,type:str]
@@ -19,7 +20,7 @@ sops:
         c0ZYMi9jazhFNEpuVURRdTJhSUlBZ0EKKhEvDPT3F4oLb31s9kK9NHvkpjbB0e1o
         A5m28BwdULZOILMN1okKKYbMRhyvumVqi3ODdAoWM6rcENGQ64+wgw==
         -----END AGE ENCRYPTED FILE-----
-  lastmodified: "2025-12-07T08:09:21Z"
-  mac: ENC[AES256_GCM,data:F9wGBxH7vZ8xJnrdigIr/DKhn3BPyXYjF5GQxyB++smwdDSyVbov1gZtNWd0lxwYzlYk54N5/Ma0lo0H4E0pOtw8sGhpjunOl3ZhkEPSz4u7Jn4cj8bIAGXJlxl00mgXoTA4a/ew8kwFFs8KtgFGUHeKpKJ4BVtmT2K6Bex2gc8=,iv:3+J+QNB9FktDe/O9Vg9llf3kStHCwb7KORueWt2r5Ng=,tag:Fk5DUaeEPblZP4jF5ImASg==,type:str]
+  lastmodified: "2025-12-07T08:22:09Z"
+  mac: ENC[AES256_GCM,data:WM7gFGJ9orvrlVKCUcFzbgbITXS4YYmrB1UrA0/dSlvA1aiHjyl0DAjBFjZktWKFwc9jsgXgkBq/jgMx4+Cgd/46CSpJFN2UKw8CrS34kEHcy63Q1+kpWB+gQ91J/GQOGc5eCww8RtBYaBQbG/u+yGg4kFOgqUgcQJC2H0VSDXU=,iv:Di7zAALq8ptfzX6hJtQEY313f3PdgGTSCo1Xnby79Dc=,tag:FwV7x3YUYZ0UJmEs5Mou8w==,type:str]
   encrypted_regex: ^(data|stringData|spec)$
   version: 3.11.0
