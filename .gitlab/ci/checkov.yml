@@ -1,7 +1,7 @@
 checkov_scan:
   stage: security
   image:
-    name: bridgecrew/checkov:3.2.495
+    name: bridgecrew/checkov:latest
     entrypoint: [""]
   script:
     - checkov -d .
