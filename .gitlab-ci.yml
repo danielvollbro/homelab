@@ -30,7 +30,6 @@ checkov_scan:
     - checkov -d .
       --framework terraform,kubernetes,helm
       --skip-path gitops/flux/clusters/prod/flux-system
-      --soft-fail
       -o junitxml | tee checkov_reports.xml
   artifacts:
     when: always
