@@ -4,12 +4,10 @@ resource "flux_bootstrap_git" "this" {
 }
 
 resource "kubernetes_secret" "sops_age" {
+  # checkov:skip=CKV_K8S_21:The SOPS decryption key must reside in the flux-system namespace for Flux to operate
   metadata {
     name      = "sops-age"
     namespace = "flux-system"
-    annotations = {
-      "checkov.io/skip1" = "CKV_K8S_21=False positive. Namespace is defined but Checkov fails to parse SOPS file."
-    }
   }
 
   data = {
@@ -20,12 +18,10 @@ resource "kubernetes_secret" "sops_age" {
 }
 
 resource "kubernetes_secret" "truenas_apikey" {
+  # checkov:skip=CKV_K8S_21:Democratic-CSI driver requires installation in kube-system or privileged namespace
   metadata {
     name      = "truenas-apikey"
     namespace = "kube-system"
-    annotations = {
-      "checkov.io/skip1" = "CKV_K8S_21=False positive. Namespace is defined but Checkov fails to parse SOPS file."
-    }
   }
 
   data = {
@@ -45,12 +41,10 @@ resource "kubernetes_namespace" "cert_manager" {
 }
 
 resource "kubernetes_secret" "cloudflare_token" {
+  # checkov:skip=CKV_K8S_21:Namespace is defined via dynamic reference which static analysis misses
   metadata {
     name      = "cloudflare-api-token-secret"
     namespace = kubernetes_namespace.cert_manager.metadata[0].name
-    annotations = {
-      "checkov.io/skip1" = "CKV_K8S_21=False positive. Namespace is defined but Checkov fails to parse SOPS file."
-    }
   }
 
   data = {
