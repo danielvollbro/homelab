@@ -10,6 +10,12 @@ pkgs.mkShell {
     helm
     age
     sops
+    pre-commit
+    gitleaks
+    gitlint
+    python3
+    git
+    tflint
   ];
 
   shellHook = ''
