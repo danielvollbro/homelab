@@ -2,7 +2,7 @@
 contrib = contrib-title-conventional-commits
 
 [title-max-length]
-line-length=50
+line-length=72
 
 [title-min-length]
 min-length=5

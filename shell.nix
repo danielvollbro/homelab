@@ -13,6 +13,9 @@ pkgs.mkShell {
     pre-commit
     gitleaks
     gitlint
+    python3
+    git
+    tflint
   ];
 
   shellHook = ''
