@@ -7,8 +7,8 @@ metadata:
     checkov.io/skip1: CKV_K8S_21=False positive. Namespace is defined but Checkov fails to parse SOPS file.
 spec:
   blocks:
-    - start: ENC[AES256_GCM,data:JcT0Roct0BBShZ1edgA=,iv:7Q8pZq9o+5XtSCeTFsy8LgTt2txVa7EMaia3QhPLkBw=,tag:N1MEPCskOeXtBIu18mTdWA==,type:str]
-      stop: ENC[AES256_GCM,data:59L71wrJSdjoL8iuhIo=,iv:9UrqDwREMPgAp9jRNQejN0gZ3mQT11Ne24MCJfXK/6o=,tag:S9gQYIUVn50aisvoPO0r8A==,type:str]
+    - start: ENC[AES256_GCM,data:YzPjOO5Cq0VbDWk=,iv:Vvw8ILmDMtUyrdGrsZaLh9CBYZ4tjOo0RRuVRjfnSFg=,tag:Scw9fgpMZjqtVD/+rTXCtQ==,type:str]
+      stop: ENC[AES256_GCM,data:FgAUd04dprxzmEc=,iv:00L10apMGfK2O3lNbuGQHH5lwDxcEOdZywV8qmSs1VI=,tag:TjLQTRYpRUUn5xKy2E580A==,type:str]
 sops:
   age:
     - recipient: age1f70m834v0d5scfgvur7kakl06dvgdctafh64xc2p3xssu2msr9tq3pyfe7
@@ -20,7 +20,7 @@ sops:
         c0ZYMi9jazhFNEpuVURRdTJhSUlBZ0EKKhEvDPT3F4oLb31s9kK9NHvkpjbB0e1o
         A5m28BwdULZOILMN1okKKYbMRhyvumVqi3ODdAoWM6rcENGQ64+wgw==
         -----END AGE ENCRYPTED FILE-----
-  lastmodified: "2025-12-07T08:22:09Z"
-  mac: ENC[AES256_GCM,data:WM7gFGJ9orvrlVKCUcFzbgbITXS4YYmrB1UrA0/dSlvA1aiHjyl0DAjBFjZktWKFwc9jsgXgkBq/jgMx4+Cgd/46CSpJFN2UKw8CrS34kEHcy63Q1+kpWB+gQ91J/GQOGc5eCww8RtBYaBQbG/u+yGg4kFOgqUgcQJC2H0VSDXU=,iv:Di7zAALq8ptfzX6hJtQEY313f3PdgGTSCo1Xnby79Dc=,tag:FwV7x3YUYZ0UJmEs5Mou8w==,type:str]
+  lastmodified: "2025-12-07T22:20:56Z"
+  mac: ENC[AES256_GCM,data:eAPYEiII8o68RrtZ+a77JzECN/jaygiQFelORRNeWldOucbz316NprMYwLPvfrxqgdU0pGcAiYggRGAGMyQUwvyICOhEj8h2VEcPF5JTm0MvqsPf2vX4DV26u6nL/LzvfHeDE0WNURXgUY+7Sil+8lBQwouMas0l2DETpzRJmaA=,iv:BeY6BZqINWErsInOjtEuGfdtSV8WvbISz7cbCZ0Rlg0=,tag:73V+5q1mC6syt+juG2RWOQ==,type:str]
   encrypted_regex: ^(data|stringData|spec)$
   version: 3.11.0
