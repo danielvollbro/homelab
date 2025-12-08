@@ -53,13 +53,13 @@ spec:
         instance_id: null
         httpConnection:
           protocol: ENC[AES256_GCM,data:Oxz6/mM=,iv:R2P2iaFb4YBr1FtA96bsABMEh0GPWy5LNL7l1mjI8/0=,tag:jc6WerqfHYtep/XJ2k45OQ==,type:str]
-          host: ENC[AES256_GCM,data:kRBWjuWtUgDctmYMXw==,iv:o9LH9k4USkbrYY966FjVyI9NrXms5cgYDNG2FTmd9AI=,tag:u32EGCcbf8BDoNFRx/zUQg==,type:str]
+          host: ENC[AES256_GCM,data:rSrmyQKbAjhzMQ==,iv:UV3vXt5HKbJIWCdtoRzM9aGybe/XgKH6iO5FUzZcv8k=,tag:5SiA8FC/LGsdKpIhxyk4aQ==,type:str]
           port: ENC[AES256_GCM,data:scx8,iv:ta6FrQ18oFgu7Om0b4Jj3UBqoVXoX4RETx8fsVARt7A=,tag:JP8KcR3gNJIrkuTRP/NRNA==,type:int]
           apiVersion: ENC[AES256_GCM,data:tg==,iv:malTljaul0RX/gc1UzSIAxu3mVs95q2/rEfLhTs61F4=,tag:r9Cpna3iGKXUyOstEuDMmA==,type:int]
           apiKey: ENC[AES256_GCM,data:GuvXXtiRpsHDzU6pjdAwTZqylMgIbOdNB5u50RRxnBO1od5werbDYS1d/YFQ2Nga7mm+Gw++/xyjsnK8YurjOP3T,iv:b+2dKtUu8cOAeTaz+ck3oL1571mBzpPXff0HN7gCY9o=,tag:Xb88x+v2ldrufdWqkVBRBw==,type:str]
           allowInsecure: ENC[AES256_GCM,data:o8d5aA==,iv:hPDZ56JCL73k5skF1i4TvxpSkP+mc6E+rwhNI10NzQE=,tag:7gZoKe86yzEQr42Jc9bg4A==,type:bool]
         sshConnection:
-          host: ENC[AES256_GCM,data:keowq7+8HKVHW/vkVQ==,iv:hpJgrl3mKf+jN0pAlPbHcRWefAE9sVZEuizD24LN8XI=,tag:BA+bC+Qn8jqHWvEdfRRcQQ==,type:str]
+          host: ENC[AES256_GCM,data:6ZFLBexT2elxtA==,iv:URiR6jqeveESxEENwpHyE0/1WD1U3MHnynOmK2DmFiM=,tag:k22DqAP1p/NtvgKsgIkRHQ==,type:str]
           port: ENC[AES256_GCM,data:qXU=,iv:xkRL06CI7qfk33v218JbLVFHwIrEsWQVWWd3hHqnoXA=,tag:yuq7jXT3w6a8Gq8GrjnDWw==,type:int]
           username: ENC[AES256_GCM,data:B9ZCgg==,iv:1rMLdKn6JjjFhi/iAo2xsXgrPBzbCyuHpSE+dXUX+zM=,tag:td8671herg9nDhBZiVfaIQ==,type:str]
         zfs:
@@ -69,7 +69,7 @@ spec:
           zvolEnableReservation: ENC[AES256_GCM,data:nbGfNsg=,iv:AZMCzcCr+1HxVbH1YkMLZ4/d1unJwSdd5riPo8sCmZ8=,tag:ccotWf4gS0YgD/pOBvhi/Q==,type:bool]
           zvolBlocksize: ENC[AES256_GCM,data:nLIY,iv:Dgf3aVycu5bpSSZ/BVbDe3t6cjz5Lb0v42qp1ffrbmk=,tag:G9gQ34UE/gI9rQ7KqwzMHA==,type:str]
         iscsi:
-          targetPortal: ENC[AES256_GCM,data:V12WMECr49IJ2e5ZV9TIvDr3,iv:ags4jk6ZbDg2kQjVMHbREnt5IgmSM/WQrwDX8Pj6tvo=,tag:Wiy21YCltcA4UpedFgLC3w==,type:str]
+          targetPortal: ENC[AES256_GCM,data:BISEZmNZCYqG9t5Yw88W,iv:CfTLq33OrbiueOz4A49rRUXP3zw4cSssI+MfDZB9SFg=,tag:10b6DKgQhSAmQFSYoVnTwg==,type:str]
           targetGroups:
             - targetGroupPortalGroup: ENC[AES256_GCM,data:bA==,iv:d/UuHl2iTbbt87lsicxnnUEeG1oB5mCUmq3CyfYEhvc=,tag:R2aFMjK1xpD1j16FFNUa+w==,type:int]
               targetGroupInitiatorGroup: ENC[AES256_GCM,data:rQ==,iv:rKPGjyYzvBwZbtCQ9Yo7ytqBXyieGE+L92Nkea9ntwI=,tag:N2heoyal3fOXR56rKmNWSA==,type:int]
@@ -102,7 +102,7 @@ sops:
         WjhkSmdYVFpEUU0wdkFRTlRHQUlFdnMKCcQeaNV5DlERAZDJfwiI4nLkHoE4+T2u
         n/94icSXZ2oeOpYq8d3HRQO5bDM2eg3C5gIKoob2U4WyoW48L5hlVg==
         -----END AGE ENCRYPTED FILE-----
-  lastmodified: "2025-12-07T08:22:48Z"
-  mac: ENC[AES256_GCM,data:kHiG5l81MKSK607bOfMr7fxdbqjWV5AEMjvg9mZtFLyKRq3yKiWKPAI9bv/6px7YTwG6XBIfXL4+ueJsP8AnTHQDOwlrK+kV5/dsVzpZ3L+cPoh1jisjBVWUq0eXV2ndix0jZzV2QdJ/twhWfRpEgU9IlIDykhAg5TocNqsu5co=,iv:AaStGjUy1zLcNZ9A5/tSmqsjZV6zG/LwfhlpflD9yX4=,tag:smxlw3UqHaHBG6ynIdyDoA==,type:str]
+  lastmodified: "2025-12-07T22:21:49Z"
+  mac: ENC[AES256_GCM,data:ZgCWGtPTczRkpbPtiiBSBFqMUSxCKOte4dWgLCDbZvDNPLHDGaRrUo2N411y2+7cPdQB3G1wOqp7xLWIrihlNvfhql/UDiApEZHsQXF7Cw4HnA3BeRoW1Dl6GY6NYYNoX9/J3ADTCpRjYVJ5NT1oCOqZqS48fNlb8zjUOs01za8=,iv:ArlDVGBtBWAX3fTE52duYbahqAZqriA0tuIszBK8wu4=,tag:fFmf/7VY5CKCgWCgcQIWiw==,type:str]
   encrypted_regex: ^(data|stringData|spec)$
   version: 3.11.0
