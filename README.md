@@ -1,8 +1,3 @@
-> [!WARNING]
-> If you are reading this from my Github then I have moved to my personal
-> Gitlab, please visit [git.wollbro.se](https://git.wollbro.se) for the latest
-> changes.
-
 # Welcome to my `Homelab`
 
 Welcome friend,
@@ -48,4 +43,3 @@ If you have never heard of NixOS before I strongly advice you to look into it,
 you can think of it as Docker for your development environment where you setup
 a configuration file of the tools that you need and then run `nix-shell` and
 get's all the tools preconfigured for you on each machine you run it on.
-
