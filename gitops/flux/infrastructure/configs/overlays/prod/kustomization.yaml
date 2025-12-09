@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - ../../base
 
+nameSuffix: -prod
+
 patches:
   - path: patch-cluster-issuer.yaml
     target:
