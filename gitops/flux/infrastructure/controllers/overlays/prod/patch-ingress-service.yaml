@@ -12,7 +12,7 @@ spec:
       service:
         type: LoadBalancer
         # Set static IP for LoadBalancer
-        loadBalancerIP: "10.0.50.220"
+        loadBalancerIP: "10.0.50.200"
         annotations:
           io.cilium/lb-ipam-pool: "prod-pool"
 
