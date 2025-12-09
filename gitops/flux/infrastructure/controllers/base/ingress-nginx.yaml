@@ -22,21 +22,11 @@ spec:
     crds: CreateReplace
 
   values:
-    tcp:
-      "22": "gitlab/gitlab-gitlab-gitlab-shell:22"
-
     controller:
       service:
-        type: LoadBalancer
-        # Set static IP for LoadBalancer
-        loadBalancerIP: "10.0.50.200"
-        annotations:
-          io.cilium/lb-ipam-pool: "prod-pool"
-
         ports:
           http: 80
           https: 443
-          ssh: 22
 
       kind: DaemonSet
       hostNetwork: false # Cilium Service, doesn't need hostNetwork

@@ -18,6 +18,17 @@ terraform {
       source  = "integrations/github"
       version = ">= 6.8.3"
     }
+    time = {
+      source  = "hashicorp/time"
+      version = ">= 0.13.1"
+    }
+    helm = {
+      source  = "hashicorp/helm"
+      version = ">= 3.1.1"
+    }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = ">= 3.0.1"
+    }
   }
 }
-

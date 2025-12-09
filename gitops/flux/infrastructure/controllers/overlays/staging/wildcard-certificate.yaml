@@ -8,7 +8,7 @@ spec:
   issuerRef:
     name: letsencrypt-staging
     kind: ClusterIssuer
-  commonName: "*.vollbro.se"
+  commonName: "*.staging.vollbro.se"
   dnsNames:
-    - "*.vollbro.se"
-    - "vollbro.se"
+    - "*.staging.vollbro.se"
+    - "staging.vollbro.se"

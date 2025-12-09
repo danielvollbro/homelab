@@ -44,4 +44,5 @@ module "flux_bootstrap" {
   age_key_content  = fileexists("${path.root}/../../../age.agekey") ? file("${path.root}/../../../age.agekey") : ""
   truenas_api_key  = var.truenas_api_key
   cloudflare_token = var.cloudflare_token
+  env              = "prod"
 }
