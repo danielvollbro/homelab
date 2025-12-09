@@ -162,6 +162,6 @@ planned upgrades:
 
 -----
 
-<center>
-Built with ❤️ and too much coffee by Daniel Vollbro.
-</center>
+<div align="center">
+<sub>Built with ❤️ and too much coffee by Daniel Vollbro.</sub>
+</div>
