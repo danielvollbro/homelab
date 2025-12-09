@@ -4,7 +4,6 @@ resources:
   - ../../base
   - cilium-ip-pool.yaml
   - cilium-l2.yaml
-  - wildcard-certificate.yaml
 
 patches:
   - path: patch-ingress-service.yaml
