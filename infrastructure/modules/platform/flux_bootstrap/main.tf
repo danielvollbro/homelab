@@ -54,6 +54,21 @@ resource "kubernetes_secret" "cloudflare_token" {
   depends_on = [kubernetes_namespace.cert_manager]
 }
 
+resource "kubernetes_secret" "cloudflare_token_gitlab" {
+  # checkov:skip=CKV_K8S_21:Namespace is defined via dynamic reference which static analysis misses
+  metadata {
+    name      = "cloudflare-api-token-secret"
+    namespace = "gitlab"
+  }
+
+  data = {
+    api-token = var.cloudflare_token
+  }
+
+  # Se till att namespacen finns först
+  depends_on = [kubernetes_namespace.gitlab]
+}
+
 resource "kubernetes_namespace" "gitlab" {
   metadata {
     name = "gitlab"
