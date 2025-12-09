@@ -19,7 +19,6 @@ module "nodes" {
   count  = var.nodes_count
 
   vm_id       = var.nodes_vm_start_id + count.index
-  vm_name     = "talos-vm-${count.index + 1}"
   vm_node     = var.nodes_pve_node
   vm_iso_file = module.talos_iso.id
 

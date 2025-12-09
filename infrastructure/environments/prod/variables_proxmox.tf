@@ -13,9 +13,3 @@ variable "ssh_username" {
   type        = string
   description = "The SSH username for Proxmox."
 }
-
-variable "ssh_password" {
-  type        = string
-  sensitive   = true
-  description = "The SSH password for Proxmox."
-}

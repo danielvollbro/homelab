@@ -3,11 +3,6 @@ variable "vm_id" {
   description = "The ID that will be set to the VM in Proxmox."
 }
 
-variable "vm_name" {
-  type        = string
-  description = "The name that will be set to the VM in Proxmox."
-}
-
 variable "vm_node" {
   type        = string
   description = "The Proxmox node where the VM will be created."

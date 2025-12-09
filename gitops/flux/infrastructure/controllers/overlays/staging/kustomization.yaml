@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+  - wildcard-certificate.yaml
+
+patches:
+  - target:
+      kind: HelmRelease
+      name: ingress-nginx
+      namespace: flux-system
+    patch: |-
+      - op: replace
+        path: /spec/values/controller/service/loadBalancerIP
+        value: 10.0.50.210

@@ -1,3 +1,8 @@
+variable "env" {
+  type        = string
+  description = "Specify what environment we are setting up."
+}
+
 variable "target_path" {
   type        = string
   description = "Path to where Flux stores manifests."
