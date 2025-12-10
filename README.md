@@ -72,7 +72,8 @@ graph TD
 -----
 
 ## 📦 Repository Structure
-The repository utilizes Kustomize Overlays to manage multiple environments (Prod/Staging) from a single codebase without duplication.
+The repository utilizes Kustomize Overlays to manage multiple environments
+(Prod/Staging) from a single codebase without duplication.
 ```text
 .
 ├── docs/                   # 📚 Extensive Documentation & ADRs
@@ -89,7 +90,9 @@ The repository utilizes Kustomize Overlays to manage multiple environments (Prod
 │       └── clusters/       # Entry points per environment
 └── infrastructure/         # The Hardware State (Terraform)
     ├── modules/            # Reusable TF modules
-    └── environments/       # Environment specific variables
+    ├── 01-hypervisors/     # Layer 0: Physical Host Config
+    ├── 02-platforms/       # Layer 1: Virtual Infrastructure (K8s, VM's)
+    └── 03-legacy/          # Standalone Systems
 ```
 
 -----
@@ -134,7 +137,7 @@ The entire cluster is bootstrapped via Terraform. No SSH access is required
 
 ```bash
 # 1. Provision VMs & Bootstrap Talos
-cd infrastructure/environments/prod
+cd infrastructure/02-platforms/k8s-prod
 terraform apply
 
 # 2. Watch Flux reconcile the world
