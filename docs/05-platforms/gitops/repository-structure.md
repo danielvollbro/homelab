@@ -27,22 +27,28 @@ ensuring strict dependency management between system components.
 
 ## Directory Hierarchy
 
-The repository is organized into logical layers and environments.
+The repository is organized into logical layers separating Infrastructure (Terraform) from Cluster State (Flux).
 
 ```text
-gitops/flux/
-├── infrastructure/
-│   ├── controllers/         # LAYER 1: Core Software & Network
-│   │   ├── base/            # Base HelmReleases (Cilium, Cert-Manager, Ingress)
-│   │   └── overlays/prod/   # Prod specific: IP Pools, Ingress Service Patches
+.
+├── gitops/flux/                 # CLUSTER STATE (Managed by Flux)
+│   ├── infrastructure/
+│   │   ├── controllers/         # LAYER 1: Core Software & Network
+│   │   │   ├── base/            # Base HelmReleases (Cilium, Cert-Manager, Ingress)
+│   │   │   └── overlays/prod/   # Prod specific: IP Pools, Ingress Service Patches
+│   │   │
+│   │   └── configs/             # LAYER 2: Configuration & CRDs
+│   │       ├── base/            # Base Configs (ClusterIssuer)
+│   │       └── overlays/prod/   # Prod specific: Wildcard Cert, Issuer Patches
 │   │
-│   └── configs/             # LAYER 2: Configuration & CRDs
-│       ├── base/            # Base Configs (ClusterIssuer)
-│       └── overlays/prod/   # Prod specific: Wildcard Cert, Issuer Patches
+│   └── apps/                    # LAYER 3: Workloads
+│       ├── base/                # Base Applications (GitLab)
+│       └── overlays/prod/       # Prod specific: Hostnames, Secrets, Resources
 │
-└── apps/                    # LAYER 3: Workloads
-    ├── base/                # Base Applications (GitLab)
-    └── overlays/prod/       # Prod specific: Hostnames, Secrets, Resources
+└── infrastructure/              # PROVISIONING STATE (Managed by Terraform)
+    ├── 01-hypervisors/          # LAYER 0: Physical Hardware (Proxmox)
+    ├── 02-platforms/            # LAYER 1: Virtual Infrastructure (K8s VMs)
+    └── 03-legacy/               # Standalone/Legacy Systems
 ```
 
 ## Dependency & Reconciliation Flow
@@ -51,8 +57,8 @@ Flux reconciles these layers sequentially based on `dependsOn` definitions
 managed by Terraform.
 
 | Layer              | Flux Path (Prod)                                       | Description                                                     | Dependencies |
-| :---               | :---                                                   | :---                                                            | :---         |
-| **0. Bootstrap**   | `infrastructure/environments/prod`                     | Provisions VMs & Installs Flux                                  | None         |
+| :----------------- | :----------------------------------------------------- | :-------------------------------------------------------------- | :----------- |
+| **0. Bootstrap**   | `infrastructure/02-platforms/k8s-prod`                 | Provisions VMs & Installs Flux                                  | None         |
 | **1. Controllers** | `gitops/flux/infrastructure/controllers/overlays/prod` | Installs Core Software (CNI, Ingress, CSI) and Network Pools    | Flux System  |
 | **2. Configs**     | `gitops/flux/infrastructure/configs/overlays/prod`     | Installs Resources dependent on Layer 1 (Issuers, Certificates) | Layer 1      |
 | **3. Apps**        | `gitops/flux/apps/overlays/prod`                       | End-user workloads (GitLab)                                     | Layer 2      |
@@ -79,7 +85,7 @@ To maintain a clean state and support automation, the following standards apply:
 2. Update `kustomization.yaml` `nameSuffix` to `-staging`.
 3. Update IP addresses in `controllers` patches (e.g., Ingress IP).
 4. Update Hostnames in `apps` patches.
-5. Point Terraform to the new overlay paths.
+5. Create a new Terraform state in `infrastructure/02-platforms/k8s-staging` pointing to the new overlay paths.
 
 ## Transparency Note
 

@@ -4,7 +4,7 @@ terraform_validate:
     name: hashicorp/terraform:1.14
     entrypoint: [""]
   script:
-    - cd infrastructure/environments/prod
+    - cd infrastructure/02-platforms/k8s-prod
     - terraform init -backend=false
     - terraform validate
     - terraform fmt -check -recursive ../../

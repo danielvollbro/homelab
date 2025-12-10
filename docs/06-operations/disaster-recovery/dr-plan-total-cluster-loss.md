@@ -5,31 +5,47 @@ This runbook details the procedure to recover the environment in the event of a
 total cluster destruction (e.g., accidental deletion, hardware failure).
 
 **Assumptions:**
+* Physical Servers (Layer 0) are running and configured.
 * TrueNAS storage (iSCSI Zvols and S3 Buckets) is intact.
 * The Git repository is accessible.
 * The `age.agekey` (SOPS Private Key) is available locally.
 
 ## Prerequisites
 1.  **Local Environment:** Terraform, Flux CLI, and `talosctl` installed.
-2.  **Secrets:** `age.agekey` located at the path defined in `variables.tf`.
-3.  **Access:** Admin access to Proxmox and TrueNAS.
-4.  **Backend config file:** `backend.config` fetched from bitwarden containing
-    all backend specific configuration is available in
-    `infrastructure/environments/prod`.
+2.  **Secrets:** `age.agekey` located at the path defined in `variables.tf`
+(usually repo root).
+3.  **Access:** Admin access to Proxmox and TrueNAS (via VPN or LAN).
+4.  **Backend Config:** The `backend.config` file (containing sensitive S3
+state credentials) must be fetched from Bitwarden and placed
+in `infrastructure/02-platforms/k8s-prod`.
 
 ## Phase 1: Infrastructure Provisioning
 This step recreates the VMs, bootstraps Kubernetes, and installs Flux.
 
 1.  **Navigate to Terraform:**
     ```bash
-    cd infrastructure/environments/prod
+    cd infrastructure/02-platforms/k8s-prod
     ```
 2.  **Initialize & Apply:**
     ```bash
+    # Initialize with the secure backend config
     terraform init -backend-config=backend.config
-    terraform apply
+
+    # Generate a terraform plan to validate changes
+    terraform plan -out tfplan
+
+    # Apply the infrastructure
+    terraform apply "tfplan"
     ```
-    *Wait for the cluster to form and Flux to bootstrap.*
+    * Wait for the cluster to form and Flux to bootstrap (approx 5-10 mins).
+    * **Result:** 3 Control Plane nodes are created, Talos boots, and Flux is
+    injected.
+
+3.  **Retrieve Access:**
+    ```bash
+    terraform output -raw kubeconfig > ~/.kube/config
+    kubectl get nodes
+    ```
 
 ## Phase 2: Flux Reconciliation
 Flux will automatically start applying the Git repository. Monitor the progress
@@ -40,21 +56,34 @@ to ensure layers come up in the correct order.
     flux get kustomizations -w
     ```
     *Wait for `infrastructure-controllers` to become `Ready`.*
-    *Verify Ingress IP assignment (`kubectl get svc -n flux-system`).*
+    * *Verification:* Check that Ingress has an External IP:
+        ```bash
+        kubectl get svc -n ingress-nginx
+        ```
 
 2.  **Monitor Configs (Layer 2):**
     *Wait for `infrastructure-configs` to become `Ready`.*
-    *Verify ClusterIssuer is active.*
+    * *Verification:* Check that ClusterIssuer is active:
+        ```bash
+        kubectl get clusterissuers
+        ```
 
 3.  **Monitor Apps (Layer 3):**
     *Wait for `apps` to become `Ready`.*
+    * *Verification:* Check workloads:
+        ```bash
+        kubectl get pods -n gitlab
+        ```
 
 ## Phase 3: Data Restoration
-The applications are now running, but the databases are empty (unless PVs were
-reused).
 
-* **If PVs were reused:** The app should just start working.
-* **If PVs were recreated:** Follow the application-specific restore guides.
+The applications are now running. Data status depends on the storage
+persistence.
+
+* **Scenario A: PVs Reused:** If the iSCSI volumes on TrueNAS were preserved,
+the app should automatically attach and start working immediately.
+* **Scenario B: PVs Recreated:** If volumes were lost/deleted, the database will
+be empty. Proceed to the restore guide:
   * [GitLab Database Restore](./gitlab-database-restore.md)
 
 ## Recovery Visualization
