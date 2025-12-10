@@ -1,9 +1,11 @@
 # 🚀 Enterprise Homelab Platform
 
 ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)
-![Talos](https://img.shields.io/badge/talos-linux-orange?style=for-the-badge&logo=linux&logoColor=white)
+![Talos](https://img.shields.io/badge/talos-linux-red?style=for-the-badge&logo=linux&logoColor=white)
+![Proxmox](https://img.shields.io/badge/proxmox-proxmox?style=for-the-badge&logo=proxmox&logoColor=%23E57000&labelColor=%232b2a33&color=%232b2a33)
 ![Flux](https://img.shields.io/badge/flux-gitops-blue?style=for-the-badge&logo=flux&logoColor=white)
 ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
+![Ubiquiti](https://img.shields.io/badge/ubiquiti-%230559C9.svg?style=for-the-badge&logo=ubiquiti&logoColor=white)
 ![Cilium](https://img.shields.io/badge/Cilium-eBPF-F8C42D?style=for-the-badge&logo=cilium&logoColor=white)
 
 > **"ClickOps is forbidden."**
@@ -67,7 +69,7 @@ graph TD
     VLAN50 --> CP[Control Plane]
     VLAN50 --> WORKER[Worker Nodes]
   end
-````
+```
 
 -----
 
