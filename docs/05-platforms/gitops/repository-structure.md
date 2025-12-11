@@ -47,8 +47,15 @@ The repository is organized into logical layers separating Infrastructure (Terra
 │
 └── infrastructure/              # PROVISIONING STATE (Managed by Terraform)
     ├── 01-hypervisors/          # LAYER 0: Physical Hardware (Proxmox)
+    │   ├── 01-bootstrap_cluster/ # Common Configs (ACME, ACLs, Cluster-wide)
+    │   ├── 02-srv01/            # Node 1 State (Network, Storage, Repos)
+    │   └── 03-srv02/            # Node 2 State (PCIe Mapping, GPU)
+    │
     ├── 02-platforms/            # LAYER 1: Virtual Infrastructure (K8s VMs)
-    └── 03-legacy/               # Standalone/Legacy Systems
+    │   ├── k8s-prod/            # Production K8s Cluster
+    │   └── k8s-staging/         # Staging K8s Cluster
+    │
+    └── 03-legacy/               # LAYER 2: Standalone/Legacy Systems
 ```
 
 ## Dependency & Reconciliation Flow
