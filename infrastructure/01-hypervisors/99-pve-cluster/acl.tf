@@ -1,5 +1,9 @@
 resource "proxmox_virtual_environment_user" "terraform_user" {
   user_id = "terraform@pve"
+
+  lifecycle {
+    ignore_changes = [acl]
+  }
 }
 
 resource "proxmox_virtual_environment_role" "terraform_role" {
