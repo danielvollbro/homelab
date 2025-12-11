@@ -1,3 +1,4 @@
 locals {
-  node = "gryffindor"
+  node   = "gryffindor"
+  domain = "home.vollbro.se"
 }
