@@ -35,6 +35,8 @@ resource "proxmox_virtual_environment_vm" "this" {
   }
 
   initialization {
+    datastore_id = "data"
+
     ip_config {
       ipv4 {
         address = var.net_ipv4_address
