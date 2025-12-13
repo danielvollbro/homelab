@@ -27,33 +27,44 @@ ensuring strict dependency management between system components.
 
 ## Directory Hierarchy
 
-The repository is organized into logical layers separating Infrastructure (Terraform) from Cluster State (Flux).
+The repository is organized into logical layers separating Infrastructure
+(Terraform) from Cluster State (Flux).
 
 ```text
 .
-├── gitops/flux/                 # CLUSTER STATE (Managed by Flux)
+├── gitops/flux/                  # CLUSTER STATE (Managed by Flux)
 │   ├── infrastructure/
-│   │   ├── controllers/         # LAYER 1: Core Software & Network
-│   │   │   ├── base/            # Base HelmReleases (Cilium, Cert-Manager, Ingress)
-│   │   │   └── overlays/prod/   # Prod specific: IP Pools, Ingress Service Patches
+│   │   ├── controllers/          # LAYER 1: Core Software & Network
+│   │   │   ├── base/             # Base HelmReleases (Cilium, Cert-Manager, Ingress)
+│   │   │   └── overlays/prod/    # Prod specific: IP Pools, Ingress Service Patches
 │   │   │
-│   │   └── configs/             # LAYER 2: Configuration & CRDs
-│   │       ├── base/            # Base Configs (ClusterIssuer)
-│   │       └── overlays/prod/   # Prod specific: Wildcard Cert, Issuer Patches
+│   │   └── configs/              # LAYER 2: Configuration & CRDs
+│   │       ├── base/             # Base Configs (ClusterIssuer)
+│   │       └── overlays/prod/    # Prod specific: Wildcard Cert, Issuer Patches
 │   │
-│   └── apps/                    # LAYER 3: Workloads
-│       ├── base/                # Base Applications (GitLab)
-│       └── overlays/prod/       # Prod specific: Hostnames, Secrets, Resources
+│   └── apps/                     # LAYER 3: Workloads
+│       ├── base/                 # Base Applications (GitLab)
+│       └── overlays/prod/        # Prod specific: Hostnames, Secrets, Resources
 │
-└── infrastructure/              # PROVISIONING STATE (Managed by Terraform)
-    ├── 01-hypervisors/          # LAYER 0: Physical Hardware (Proxmox)
-    │   ├── 01-bootstrap_cluster/ # Common Configs (ACME, ACLs, Cluster-wide)
-    │   ├── 02-srv01/            # Node 1 State (Network, Storage, Repos)
-    │   └── 03-srv02/            # Node 2 State (PCIe Mapping, GPU)
+└── infrastructure/               # PROVISIONING STATE (Managed by Terraform)
+    ├── 01-hypervisors/           # LAYER 0: Physical Hardware (Proxmox)
+    │   ├── 01-bootstrap_cluster/ # Common Cluster Configs
+    │   ├── 02-srv01/             # Node 1 Specifics
+    │   └── 03-srv02/             # Node 2 Specifics (GPU Host)
     │
-    ├── 02-platforms/            # LAYER 1: Virtual Infrastructure (K8s VMs)
-    │   ├── k8s-prod/            # Production K8s Cluster
-    │   └── k8s-staging/         # Staging K8s Cluster
+    ├── 02-platforms/             # LAYER 1: Virtual Infrastructure
+    │   ├── k8s-prod/             # Production K8s Cluster (Talos)
+    │   ├── k8s-staging/          # Staging K8s Cluster (Talos)
+    │   ├── streaming-gaming-pc/  # Windows Workstation (PCIe Passthrough)
+    │   └── truenas/              # Storage Appliance
+    │
+    ├── modules/                  # REUSABLE CODE
+    │   ├── compute/              # Core Primitives
+    │   │   └── proxmox_vm/       # The "Grand Unified" VM resource
+    │   └── platform/             # Domain Logic Wrappers
+    │       ├── talos_node/       # Talos specific logic
+    │       ├── windows/          # Windows/Gaming specific logic
+    │       └── truenas/          # NAS specific logic
     │
     └── 03-legacy/               # LAYER 2: Standalone/Legacy Systems
 ```
@@ -92,7 +103,8 @@ To maintain a clean state and support automation, the following standards apply:
 2. Update `kustomization.yaml` `nameSuffix` to `-staging`.
 3. Update IP addresses in `controllers` patches (e.g., Ingress IP).
 4. Update Hostnames in `apps` patches.
-5. Create a new Terraform state in `infrastructure/02-platforms/k8s-staging` pointing to the new overlay paths.
+5. Create a new Terraform state in `infrastructure/02-platforms/k8s-staging`
+pointing to the new overlay paths.
 
 ## Transparency Note
 
