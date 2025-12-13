@@ -1,19 +1,38 @@
 module "node_vm" {
   source = "../../compute/proxmox_vm"
 
-  vm_id                = var.vm_id
-  vm_name              = var.node_hostname
-  vm_node              = var.vm_node
-  vm_onboot            = var.vm_onboot
-  vm_iso_file          = var.vm_iso_file
+  vm_id                          = var.vm_id
+  vm_name                        = var.node_hostname
+  vm_node                        = var.vm_node
+  vm_tags                        = ["terraform", "talos"]
+  vm_onboot                      = var.vm_onboot
+  vm_iso_file                    = var.vm_iso_file
+  vm_boot_order                  = ["virtio0", "ide3", "net0"]
+  vm_initialization_datastore_id = "WD3TB"
+
   res_cpu_cores        = var.res_cpu_cores
   res_dedicated_memory = var.res_dedicated_memory
-  res_disc_size        = var.res_disc_size
+  res_disks = [{
+    datastore_id      = "WD3TB"
+    interface         = "virtio0"
+    size              = var.res_disc_size
+    file_format       = "raw"
+    path_in_datastore = ""
+    ssd               = false
+    iothread          = false
+    aio               = "io_uring"
+    backup            = true
+    cache             = "none"
+    discard           = "ignore"
+    replicate         = true
+  }]
+  res_tpm_state_datastore_id = "WD3TB"
+  res_efi_disk_datastore_id  = "WD3TB"
 
-  network_ipaddress   = var.network_ipaddress
-  network_gateway     = var.network_gateway
-  network_dns_servers = var.network_dns_servers
-  network_mac         = var.network_mac
+  network_ipv4_address = "${var.network_ipaddress}/24"
+  network_gateway      = var.network_gateway
+  network_dns_servers  = var.network_dns_servers
+  network_mac          = var.network_mac
 }
 
 data "talos_machine_configuration" "this" {

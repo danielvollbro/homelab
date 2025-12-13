@@ -18,6 +18,12 @@ module "vm" {
       path_in_datastore = "vm-100-disk-0"
       ssd               = true
       iothread          = true
+      aio               = "io_uring"
+      backup            = true
+      cache             = "none"
+      discard           = "ignore"
+      file_format       = "raw"
+      replicate         = true
     },
     {
       datastore_id      = "storage"
@@ -26,6 +32,12 @@ module "vm" {
       path_in_datastore = "vm-100-disk-2"
       ssd               = true
       iothread          = true
+      aio               = "io_uring"
+      backup            = true
+      cache             = "none"
+      discard           = "ignore"
+      file_format       = "raw"
+      replicate         = true
     }
   ]
 

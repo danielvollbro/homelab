@@ -1,7 +1,6 @@
 variable "res_cpu_cores" {
-  description = "The number of cores dedicated to the VM."
   type        = number
-  default     = 2
+  description = "The number of CPU cores to allocate to the VM."
 }
 
 variable "res_cpu_type" {
@@ -11,15 +10,8 @@ variable "res_cpu_type" {
 }
 
 variable "res_dedicated_memory" {
-  description = "The amount of memory dedicated to the VM."
   type        = number
-  default     = 2048
-}
-
-variable "res_enable_ballooning" {
-  description = "Should ballooning be enabled for the VM?"
-  type        = bool
-  default     = true
+  description = "The amount of dedicated memory (in MB) to allocate to the VM."
 }
 
 variable "res_disks" {
