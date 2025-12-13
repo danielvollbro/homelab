@@ -10,12 +10,6 @@ variable "res_cpu_type" {
   default     = "x86-64-v2-AES"
 }
 
-variable "res_cpu_units" {
-  description = "The unit of the CPU."
-  type        = number
-  default     = 1024
-}
-
 variable "res_dedicated_memory" {
   description = "The amount of memory dedicated to the VM."
   type        = number
