@@ -82,6 +82,30 @@ Terraform uses a modular structure to ensure reusability across environments.
   * `nodes_count`: Defines cluster size.
   * `cluster_name`: Defines the context name in kubeconfig.
 
+## The Module Wrapper Strategy
+
+To maintain scalability across different operating systems (Talos, Windows,
+TrueNAS), we utilize a **Wrapper Pattern**.
+
+### 1. The Core Module (`modules/compute/proxmox_vm`)
+* **Role:** The "Dumb" Resource.
+* **Responsibility:** Maps Terraform variables 1:1 to the
+`proxmox_virtual_environment_vm` resource. It enforces no logic other than
+exposing all necessary parameters (Disk, Network, PCI).
+
+### 2. The Platform Wrappers (`modules/platform/*`)
+* **Role:** The "Opinionated" Configuration.
+* **Responsibility:** Sets strict defaults for a specific OS type.
+  * **Example (Windows):** Enforces `machine = "pc-q35-10.0"`, adds TPM & EFI
+  disks, and sets SCSI hardware to `virtio-scsi-single`.
+  * **Example (Talos):** Enforces ISO boot order and specific network models.
+
+### 3. The Implementation (`02-platforms/*`)
+* **Role:** The "Instance" Definition.
+* **Responsibility:** Defines the actual size and location of the VM (RAM,
+Cores, Node placement, GPU Mapping). This is the only layer that contains
+environment-specific data.
+
 ## Provisioning Visualization
 
 The flow of a "Cold Boot" (Terraform Apply) for the Production Cluster.
