@@ -1,10 +1,27 @@
+variables:
+  TF_PLUGIN_CACHE_DIR: "$CI_PROJECT_DIR/.terraform.d/plugin-cache"
+
+cache:
+  key: "${CI_COMMIT_REF_SLUG}"
+  paths:
+    - .terraform.d/plugin-cache
+
 terraform_validate:
   stage: validate
   image:
     name: hashicorp/terraform:1.14
     entrypoint: [""]
+  parallel:
+    matrix:
+      - TF_ROOT:
+          - infrastructure/01-hypervisors/01-bootstrap_cluster
+          - infrastructure/01-hypervisors/02-srv01
+          - infrastructure/01-hypervisors/03-srv02
+          - infrastructure/02-platforms/k8s-prod
+          - infrastructure/02-platforms/truenas
+          - infrastructure/02-platforms/streaming-gaming-pc
   script:
-    - cd infrastructure/02-platforms/k8s-prod
+    - echo "Validating $TF_ROOT..."
+    - cd $TF_ROOT
     - terraform init -backend=false
     - terraform validate
-    - terraform fmt -check -recursive ../../
