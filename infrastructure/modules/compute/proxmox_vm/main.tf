@@ -10,6 +10,7 @@ resource "proxmox_virtual_environment_vm" "this" {
   migrate             = true
   stop_on_destroy     = var.vm_stop_on_destroy
   scsi_hardware       = var.vm_scsi_hardware
+  keyboard_layout     = var.vm_keyboard_layout
 
   machine = var.vm_machine
   bios    = var.vm_bios
@@ -45,21 +46,29 @@ resource "proxmox_virtual_environment_vm" "this" {
       }
     }
 
-    dns {
-      servers = var.network_dns_servers
+    dynamic "dns" {
+      for_each = length(var.network_dns_servers) > 0 ? [0] : []
+
+      content {
+        servers = var.network_dns_servers
+      }
     }
   }
 
   network_device {
     bridge       = "vmbr0"
     mac_address  = var.network_mac
-    disconnected = false
+    disconnected = var.network_disconnected
     firewall     = var.network_firewall
     model        = "virtio"
   }
 
-  cdrom {
-    file_id = var.vm_iso_file
+  dynamic "cdrom" {
+    for_each = var.vm_iso_file == null ? [] : [0]
+
+    content {
+      file_id = var.vm_iso_file
+    }
   }
 
   tpm_state {
@@ -83,6 +92,12 @@ resource "proxmox_virtual_environment_vm" "this" {
       path_in_datastore = disk.value.path_in_datastore
       ssd               = disk.value.ssd
       iothread          = disk.value.iothread
+      aio               = disk.value.aio
+      backup            = disk.value.backup
+      cache             = disk.value.cache
+      discard           = disk.value.discard
+      file_format       = disk.value.file_format
+      replicate         = disk.value.replicate
     }
   }
 

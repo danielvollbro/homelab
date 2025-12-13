@@ -29,21 +29,19 @@ variable "res_enable_ballooning" {
 variable "res_disks" {
   description = "List of disks to create for the VM."
   type = list(object({
+    aio               = string
+    backup            = bool
+    cache             = string
     datastore_id      = string
+    discard           = string
+    file_format       = string
     interface         = string
-    size              = number
-    path_in_datastore = string
-    ssd               = bool
     iothread          = bool
+    path_in_datastore = string
+    replicate         = bool
+    size              = number
+    ssd               = bool
   }))
-  default = [{
-    datastore_id      = "storage"
-    interface         = "scsi0"
-    size              = 20
-    path_in_datastore = ""
-    ssd               = false
-    iothread          = false
-  }]
 }
 
 variable "res_hostpci" {

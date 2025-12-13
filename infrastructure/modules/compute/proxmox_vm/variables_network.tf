@@ -26,3 +26,9 @@ variable "network_firewall" {
   description = "Should the firewall be enabled?"
   default     = false
 }
+
+variable "network_disconnected" {
+  type        = bool
+  description = "Should the network device be disconnected?"
+  default     = false
+}

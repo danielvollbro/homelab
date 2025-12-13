@@ -4,6 +4,7 @@ module "this" {
   vm_id                          = var.vm_id
   vm_name                        = var.vm_name
   vm_node                        = var.vm_node_name
+  vm_tags                        = ["terraform", "windows"]
   vm_machine                     = "pc-q35-10.0"
   vm_os                          = "win11"
   vm_initialization_datastore_id = "data"

@@ -17,7 +17,7 @@ variable "vm_description" {
 variable "vm_tags" {
   description = "Tags added to VM in PVE."
   type        = list(string)
-  default     = ["terraform", "windows"]
+  default     = ["terraform"]
 }
 
 variable "vm_node" {
@@ -49,10 +49,16 @@ variable "vm_stop_on_destroy" {
   default     = true
 }
 
+variable "vm_keyboard_layout" {
+  description = "Keyboard layout on the VM."
+  type        = string
+  default     = "en-us"
+}
+
 variable "vm_iso_file" {
   type        = string
   description = "The ISO file to use for the VM."
-  default     = ""
+  default     = null
 }
 
 variable "vm_boot_order" {
