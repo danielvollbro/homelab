@@ -11,6 +11,20 @@ terraform_validate:
   image:
     name: hashicorp/terraform:1.14
     entrypoint: [""]
+
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        - infrastructure/**/*.tf
+        - infrastructure/**/*.hcl
+        - infrastructure/**/*.tfvars
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - infrastructure/**/*.tf
+        - infrastructure/**/*.hcl
+        - infrastructure/**/*.tfvars
+    - if: $CI_PIPELINE_SOURCE == "web"
+
   parallel:
     matrix:
       - TF_ROOT:
