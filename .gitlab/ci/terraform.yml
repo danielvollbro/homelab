@@ -2,7 +2,7 @@ variables:
   TF_PLUGIN_CACHE_DIR: "$CI_PROJECT_DIR/.terraform.d/plugin-cache"
 
 cache:
-  key: "terraform-validate-v1"
+  key: "terraform-plugins-v1"
   paths:
     - .terraform.d/plugin-cache
 
@@ -14,15 +14,12 @@ terraform_validate:
 
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-      changes:
+      changes: &tf_changes
         - infrastructure/**/*.tf
         - infrastructure/**/*.hcl
         - infrastructure/**/*.tfvars
     - if: $CI_COMMIT_BRANCH == "main"
-      changes:
-        - infrastructure/**/*.tf
-        - infrastructure/**/*.hcl
-        - infrastructure/**/*.tfvars
+      changes: *tf_changes
     - if: $CI_PIPELINE_SOURCE == "web"
 
   parallel:

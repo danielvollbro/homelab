@@ -3,5 +3,17 @@ kubeconform:
   image:
     name: ghcr.io/yannh/kubeconform:latest-alpine
     entrypoint: [""]
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        - gitops/**/*
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - gitops/**/*
   script:
-    - /kubeconform -summary -ignore-missing-schemas gitops/
+    - /kubeconform
+      -summary
+      -schema-location default
+      -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json'
+      -ignore-missing-schemas
+      gitops/

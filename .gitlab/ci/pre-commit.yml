@@ -1,21 +1,13 @@
 variables:
   PRE_COMMIT_HOME: "$CI_PROJECT_DIR/.cache/pre-commit"
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 cache:
   key: "pre-commit-v1"
   paths:
     - .cache/pre-commit
-    - .cache/pip
 
 pre-commit:
   stage: lint
-  image: python:3.14-slim
-  before_script:
-    - apt-get update && apt-get install -y git curl unzip
-    - curl -fsSL https://releases.hashicorp.com/terraform/1.14.0/terraform_1.14.0_linux_amd64.zip -o terraform.zip
-    - unzip terraform.zip && mv terraform /usr/local/bin/
-    - curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
-    - pip install pre-commit
+  image: ghcr.io/antonbabenko/pre-commit-terraform:latest
   script:
     - pre-commit run --all-files --show-diff-on-failure
