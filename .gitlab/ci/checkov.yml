@@ -3,6 +3,13 @@ checkov_scan:
   image:
     name: bridgecrew/checkov:latest
     entrypoint: [""]
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        - infrastructure/**/*
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - infrastructure/**/*
   script:
     - checkov -d .
       --framework terraform,kubernetes,helm
