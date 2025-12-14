@@ -3,7 +3,7 @@ variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 cache:
-  key: "${CI_COMMIT_REF_SLUG}"
+  key: "pre-commit-v1"
   paths:
     - .cache/pre-commit
     - .cache/pip
