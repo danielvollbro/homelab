@@ -14,10 +14,12 @@ workflow:
     - if: $CI_PIPELINE_SOURCE == "web"
 
 stages:
+  - lint
   - validate
   - security
 
 include:
+  - local: '.gitlab/ci/yamllint.yml'
   - local: '.gitlab/ci/terraform.yml'
   - local: '.gitlab/ci/kubeconform.yml'
   - local: '.gitlab/ci/checkov.yml'
