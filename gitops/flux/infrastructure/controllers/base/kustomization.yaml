@@ -7,3 +7,5 @@ resources:
   - ingress-nginx-repo.yaml
   - ingress-nginx.yaml
   - jetstack-repo.yaml
+  - emberstack-repo.yaml
+  - reflector.yaml

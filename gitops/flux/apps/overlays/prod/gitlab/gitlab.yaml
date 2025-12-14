@@ -106,7 +106,7 @@ spec:
         class: nginx
         tls:
           enabled: true
-          secretName: gitlab-gitlab-wildcard-tls-v2
+          secretName: wildcard-tls
 
       storageClass: freenas-iscsi
 
