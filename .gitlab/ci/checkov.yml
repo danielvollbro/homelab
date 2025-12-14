@@ -1,3 +1,4 @@
+---
 checkov_scan:
   stage: security
   image:

@@ -1,3 +1,4 @@
+---
 kubeconform:
   stage: validate
   image:

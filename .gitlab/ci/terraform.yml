@@ -1,3 +1,4 @@
+---
 variables:
   TF_PLUGIN_CACHE_DIR: "$CI_PROJECT_DIR/.terraform.d/plugin-cache"
 
