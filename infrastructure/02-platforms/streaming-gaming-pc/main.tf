@@ -3,7 +3,7 @@ module "vm" {
 
   vm_id        = 100
   vm_name      = "gaming-pc"
-  vm_node_name = "ravenclaw"
+  vm_node_name = "srv02"
 
   res_cpu_cores         = 8
   res_cpu_type          = "host"
