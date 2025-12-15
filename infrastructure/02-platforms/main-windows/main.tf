@@ -2,7 +2,7 @@ module "vm" {
   source = "../../modules/platform/windows"
 
   vm_id        = 100
-  vm_name      = "gaming-pc"
+  vm_name      = "main-windows"
   vm_node_name = "srv02"
 
   res_cpu_cores         = 8
