@@ -3,7 +3,7 @@ module "truenas_vm" {
 
   vm_id        = 1000
   vm_name      = "truenas"
-  vm_node_name = "gryffindor"
+  vm_node_name = "srv01"
 
   res_cpu_cores        = 6
   res_cpu_type         = "host"

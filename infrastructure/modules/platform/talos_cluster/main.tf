@@ -8,7 +8,7 @@ module "talos_image" {
 module "talos_iso" {
   source = "../../compute/iso_file"
 
-  node = "gryffindor"
+  node = "srv01"
   url  = module.talos_image.download_iso_secureboot
 }
 
