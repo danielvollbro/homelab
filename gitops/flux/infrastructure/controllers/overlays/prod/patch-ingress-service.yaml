@@ -5,6 +5,7 @@ metadata:
   name: ingress-nginx
   namespace: flux-system
 spec:
+  interval: 5m0s
   values:
     tcp:
       "22": "gitlab/gitlab-gitlab-gitlab-shell:22"

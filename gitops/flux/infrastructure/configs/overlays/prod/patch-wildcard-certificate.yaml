@@ -5,6 +5,10 @@ metadata:
   name: wildcard-vollbro-se
   namespace: infrastructure
 spec:
+  secretName: wildcard-tls
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
   commonName: "*.vollbro.se"
   dnsNames:
     - "*.vollbro.se"
