@@ -1,3 +1,4 @@
+---
 apiVersion: cilium.io/v2alpha1
 kind: CiliumL2AnnouncementPolicy
 metadata:
@@ -6,26 +7,11 @@ metadata:
   annotations:
     checkov.io/skip1: CKV_K8S_21=False positive. Namespace is defined but Checkov fails to parse SOPS file.
 spec:
-  externalIPs: ENC[AES256_GCM,data:GcyTaA==,iv:n7+nHjxS12Jb+/BBSKu3+IPNRJfq3fdoiYu600ouV7E=,tag:7HpZq1wQHm79ETGwLWvKkg==,type:bool]
-  loadBalancerIPs: ENC[AES256_GCM,data:TUawqA==,iv:bjlDc6vJqp9TtCGbuGokw2rKYcDA0FH4xjZHd77xjZg=,tag:lMojoi5+ayeflSqx06Oq9w==,type:bool]
+  externalIPs: true
+  loadBalancerIPs: true
   interfaces:
-    - ENC[AES256_GCM,data:uW8ijmE=,iv:4gD4AygqEVALMPLOHC+ERouLcvGZrBC1Ap0QhkeTt/w=,tag:sQYhECNCX5y5gE9+n515Kg==,type:str]
+    - ^eth0
   nodeSelector:
     matchExpressions:
-      - key: ENC[AES256_GCM,data:6db+dWC6xTS7lji+wes/CC0Fxe2cUyjJj8TnfA+Kz0idRpEZEA==,iv:cL9sq4v7+NlwGBlaXD3DFJ5AP6iAFDGffkedIXDY8A8=,tag:ByQP94faiMl/Bdd640q6GQ==,type:str]
-        operator: ENC[AES256_GCM,data:vFf4JVwX,iv:yc8EH23hoIJ/ebm2VtKQKnJ87JKDX2FE4oStPRFYQOE=,tag:JAi0s/MAvcm5VuS+xCVzUA==,type:str]
-sops:
-  age:
-    - recipient: age1f70m834v0d5scfgvur7kakl06dvgdctafh64xc2p3xssu2msr9tq3pyfe7
-      enc: |
-        -----BEGIN AGE ENCRYPTED FILE-----
-        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBna3l2ZWhPaDczeUNiVjFh
-        Mm4yWXZGWkFOZi9xWnlwSUhiaVhkZ1dMRHpvClN0SnM0RlpXY1gyZkRmMnJLZE9Y
-        ZmdURUF4Tk1zdy9ISmJ3RkNGVTFxbDgKLS0tIEJHSTY2RG9HeTl5ZFpGQ1E1Qmpt
-        ZEpXZDBGNWowR1pUUHAzOGk5SFFlUUkK8wzSOMlmOP9306/b7Kkmn6YtnMNma7xC
-        UjlpkNwFkxv6DHcdWJ3+w9vh278ykByw8Ex6gs37p4/Ih5tLPBcDbg==
-        -----END AGE ENCRYPTED FILE-----
-  lastmodified: "2025-12-07T08:22:26Z"
-  mac: ENC[AES256_GCM,data:mPZbpjex/LvbIQ8IXrFopLg6YI/sF8CBWBONH++bvlBBL/+fPXEe1sGgb5I5JgbyDnRVHWTOj5XMAOe0kFvnuHb817rXsYPmHRXtSdVD5wMhW+2NkgFCMdVg6eZ85OxRiBErsWblO9Nl7v+2w1r16cIygqOPLF6E8Ee1ReiVEr4=,iv:LgMYb1t6Z3IiNh+fleLGx1V5M5KQhTWoBZXR6B16l6I=,tag:VWpkiB8Pg1dkVxLFAHi16g==,type:str]
-  encrypted_regex: ^(data|stringData|spec)$
-  version: 3.11.0
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists

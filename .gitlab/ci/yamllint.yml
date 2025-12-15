@@ -1,0 +1,6 @@
+---
+yamllint:
+  stage: lint
+  image: registry.gitlab.com/pipeline-components/yamllint:latest
+  script:
+    - yamllint .

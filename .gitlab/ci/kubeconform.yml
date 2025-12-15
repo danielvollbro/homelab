@@ -1,3 +1,4 @@
+---
 kubeconform:
   stage: validate
   image:
@@ -16,4 +17,5 @@ kubeconform:
       -schema-location default
       -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json'
       -ignore-missing-schemas
+      -ignore-filename-pattern gitops/flux/infrastructure/controllers/base/democratic-csi-iscsi.yaml
       gitops/
