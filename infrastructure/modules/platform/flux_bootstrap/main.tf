@@ -3,7 +3,7 @@ resource "flux_bootstrap_git" "this" {
   path               = var.target_path
 }
 
-resource "kubernetes_secret" "sops_age" {
+resource "kubernetes_secret_v1" "sops_age" {
   # checkov:skip=CKV_K8S_21:The SOPS decryption key must reside in the flux-system namespace for Flux to operate
   metadata {
     name      = "sops-age"
@@ -17,7 +17,7 @@ resource "kubernetes_secret" "sops_age" {
   depends_on = [flux_bootstrap_git.this]
 }
 
-resource "kubernetes_secret" "truenas_apikey" {
+resource "kubernetes_secret_v1" "truenas_apikey" {
   # checkov:skip=CKV_K8S_21:Democratic-CSI driver requires installation in kube-system or privileged namespace
   metadata {
     name      = "truenas-apikey"
@@ -40,7 +40,7 @@ resource "kubernetes_namespace" "cert_manager" {
   }
 }
 
-resource "kubernetes_secret" "cloudflare_token" {
+resource "kubernetes_secret_v1" "cloudflare_token" {
   # checkov:skip=CKV_K8S_21:Namespace is defined via dynamic reference which static analysis misses
   metadata {
     name      = "cloudflare-api-token-secret"
@@ -54,7 +54,7 @@ resource "kubernetes_secret" "cloudflare_token" {
   depends_on = [kubernetes_namespace.cert_manager]
 }
 
-resource "kubernetes_secret" "cloudflare_token_gitlab" {
+resource "kubernetes_secret_v1" "cloudflare_token_gitlab" {
   # checkov:skip=CKV_K8S_21:Namespace is defined via dynamic reference which static analysis misses
   metadata {
     name      = "cloudflare-api-token-secret"
