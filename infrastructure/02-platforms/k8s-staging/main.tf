@@ -1,12 +1,16 @@
+locals {
+  env = "staging"
+}
+
 module "talos_cluster" {
   source = "../../modules/platform/talos_cluster"
 
-  cluster_name          = "staging-cluster"
   cluster_vip           = var.talos_cluster_vip
   cluster_talos_version = "v1.11.5"
+  cluster_env           = local.env
 
   nodes_count       = length(var.talos_node_configs)
-  nodes_vm_start_id = 200
+  nodes_vm_start_id = 300
   nodes_pve_node    = "srv01"
   nodes_extensions = [
     "siderolabs/qemu-guest-agent",
@@ -39,10 +43,9 @@ module "flux_bootstrap" {
 
   depends_on = [time_sleep.wait_for_network]
 
-  target_path      = "gitops/flux/clusters/staging"
   github_repo      = var.github_repo
   age_key_content  = fileexists("${path.root}/../../../age.agekey") ? file("${path.root}/../../../age.agekey") : ""
   truenas_api_key  = var.truenas_api_key
   cloudflare_token = var.cloudflare_token
-  env              = "staging"
+  env              = local.env
 }
