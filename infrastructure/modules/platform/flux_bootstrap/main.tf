@@ -1,6 +1,6 @@
 resource "flux_bootstrap_git" "this" {
   embedded_manifests = true
-  path               = var.target_path
+  path               = "gitops/flux/clusters/${var.env}"
 }
 
 resource "kubernetes_secret_v1" "sops_age" {
@@ -31,7 +31,7 @@ resource "kubernetes_secret_v1" "truenas_apikey" {
   depends_on = [flux_bootstrap_git.this]
 }
 
-resource "kubernetes_namespace" "cert_manager" {
+resource "kubernetes_namespace_v1" "cert_manager" {
   metadata {
     name = "cert-manager"
   }
@@ -44,14 +44,14 @@ resource "kubernetes_secret_v1" "cloudflare_token" {
   # checkov:skip=CKV_K8S_21:Namespace is defined via dynamic reference which static analysis misses
   metadata {
     name      = "cloudflare-api-token-secret"
-    namespace = kubernetes_namespace.cert_manager.metadata[0].name
+    namespace = kubernetes_namespace_v1.cert_manager.metadata[0].name
   }
 
   data = {
     api-token = var.cloudflare_token
   }
 
-  depends_on = [kubernetes_namespace.cert_manager]
+  depends_on = [kubernetes_namespace_v1.cert_manager]
 }
 
 resource "kubernetes_secret_v1" "cloudflare_token_gitlab" {
@@ -66,10 +66,10 @@ resource "kubernetes_secret_v1" "cloudflare_token_gitlab" {
   }
 
   # Se till att namespacen finns först
-  depends_on = [kubernetes_namespace.gitlab]
+  depends_on = [kubernetes_namespace_v1.gitlab]
 }
 
-resource "kubernetes_namespace" "gitlab" {
+resource "kubernetes_namespace_v1" "gitlab" {
   metadata {
     name = "gitlab"
   }

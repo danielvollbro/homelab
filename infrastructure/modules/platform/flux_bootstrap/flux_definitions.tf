@@ -1,7 +1,7 @@
 resource "github_repository_file" "infrastructure_controllers_yaml" {
   repository          = var.github_repo
   branch              = "main"
-  file                = "${var.target_path}/infrastructure-controllers.yaml"
+  file                = "gitops/flux/clusters/${var.env}/infrastructure-controllers.yaml"
   content             = <<EOT
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -30,7 +30,7 @@ EOT
 resource "github_repository_file" "infrastructure_configs_yaml" {
   repository          = var.github_repo
   branch              = "main"
-  file                = "${var.target_path}/infrastructure-configs.yaml"
+  file                = "gitops/flux/clusters/${var.env}/infrastructure-configs.yaml"
   content             = <<EOT
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -61,7 +61,7 @@ EOT
 resource "github_repository_file" "apps_yaml" {
   repository          = var.github_repo
   branch              = "main"
-  file                = "${var.target_path}/apps.yaml"
+  file                = "gitops/flux/clusters/${var.env}/apps.yaml"
   content             = <<EOT
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization

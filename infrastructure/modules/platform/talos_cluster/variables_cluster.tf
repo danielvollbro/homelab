@@ -1,6 +1,6 @@
-variable "cluster_name" {
+variable "cluster_env" {
   type        = string
-  description = "The name of the Talos cluster."
+  description = "The environment of the Talos cluster."
 }
 
 variable "cluster_vip" {

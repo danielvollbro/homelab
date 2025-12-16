@@ -1,3 +1,7 @@
+locals {
+  cluster_name = "${var.cluster_env}-cluster"
+}
+
 module "talos_image" {
   source = "../talos_image"
 
@@ -8,8 +12,9 @@ module "talos_image" {
 module "talos_iso" {
   source = "../../compute/iso_file"
 
-  node = "srv01"
-  url  = module.talos_image.download_iso_secureboot
+  node     = "srv01"
+  url      = module.talos_image.download_iso_secureboot
+  filename = "${var.cluster_env}-nocloud-amd64-secureboot.iso"
 }
 
 resource "talos_machine_secrets" "this" {}
@@ -27,11 +32,11 @@ module "nodes" {
   network_gateway     = var.network_gateway
   network_dns_servers = var.network_dns_servers
 
-  cluster_name          = var.cluster_name
+  cluster_name          = local.cluster_name
   cluster_vip           = var.cluster_vip
   cluster_talos_version = var.cluster_talos_version
 
-  node_hostname             = "talos-node-${count.index}"
+  node_hostname             = "talos-${var.cluster_env}node-${count.index}"
   node_machine_secrets      = talos_machine_secrets.this.machine_secrets
   node_client_configuration = talos_machine_secrets.this.client_configuration
   node_machine_installer    = module.talos_image.download_installer_secureboot
