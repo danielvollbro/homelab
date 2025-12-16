@@ -1,12 +1,19 @@
 ---
-
 yaml-files:
   - '*.yaml'
   - '*.yml'
   - '.yamllint'
 
 ignore:
+  # Ignore generated files
   - gitops/flux/clusters/prod
+  - gitops/flux/clusters/staging
+  # Ignore sops encrypted files
+  - gitops/flux/apps/overlays/prod/gitlab/secrets
+  - gitops/flux/infrastructure/controllers/base/democratic-csi-iscsi.yaml
+  - gitops/flux/infrastructure/controllers/overlays/prod/cilium-ip-pool.yaml
+  - gitops/flux/infrastructure/controllers/overlays/staging/cilium-ip-pool.yaml
+
 
 rules:
   anchors: enable
