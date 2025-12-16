@@ -36,7 +36,7 @@ module "nodes" {
   cluster_vip           = var.cluster_vip
   cluster_talos_version = var.cluster_talos_version
 
-  node_hostname             = "talos-${var.cluster_env}node-${count.index}"
+  node_hostname             = "talos-${var.cluster_env}-node-${count.index}"
   node_machine_secrets      = talos_machine_secrets.this.machine_secrets
   node_client_configuration = talos_machine_secrets.this.client_configuration
   node_machine_installer    = module.talos_image.download_installer_secureboot
