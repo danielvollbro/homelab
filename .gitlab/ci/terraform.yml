@@ -30,6 +30,7 @@ terraform_validate:
           - infrastructure/01-hypervisors/02-srv01
           - infrastructure/01-hypervisors/03-srv02
           - infrastructure/02-platforms/k8s-prod
+          - infrastructure/02-platforms/k8s-staging
           - infrastructure/02-platforms/truenas
           - infrastructure/02-platforms/main-windows
   script:
