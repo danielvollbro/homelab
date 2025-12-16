@@ -23,13 +23,13 @@ Kubernetes nodes as "cattle, not pets."
 
 The physical host (36 vCPU, 88GB RAM) is partitioned as follows:
 
-| Role              | Hostname Pattern | vCPU | RAM   | Disk (Boot)   | IP Assignment  |
-| :---              | :---             | :--- | :---  | :---          | :---           |
-| **Storage**       | `truenas`        | 6    | 32 GB | Passthrough   | Static (`.20`) |
-| **Control Plane** | `talos-node-0`   | 4    | 8 GB  | 32 GB (Local) | Static (`.51`) |
-| **Control Plane** | `talos-node-1`   | 4    | 8 GB  | 32 GB (Local) | Static (`.52`) |
-| **Control Plane** | `talos-node-2`   | 4    | 8 GB  | 32 GB (Local) | Static (`.53`) |
-| **Reserve**       | *Available*      | 18   | 32 GB | -             | -              |
+| Role              | Hostname Pattern    | vCPU | RAM   | Disk (Boot)   | IP Assignment  |
+| :---------------- | :------------------ | :--- | :---- | :------------ | :------------- |
+| **Storage**       | `truenas`           | 6    | 32 GB | Passthrough   | Static (`.20`) |
+| **Control Plane** | `talos-prod-node-0` | 4    | 8 GB  | 32 GB (Local) | Static (`.51`) |
+| **Control Plane** | `talos-prod-node-1` | 4    | 8 GB  | 32 GB (Local) | Static (`.52`) |
+| **Control Plane** | `talos-prod-node-2` | 4    | 8 GB  | 32 GB (Local) | Static (`.53`) |
+| **Reserve**       | *Available*         | 18   | 32 GB | -             | -              |
 
 ## Provisioning Workflow
 

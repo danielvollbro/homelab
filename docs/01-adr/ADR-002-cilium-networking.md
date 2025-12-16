@@ -1,4 +1,4 @@
-# ADR-005: Cilium CNI and L2 Announcements
+# ADR-002: Cilium CNI and L2 Announcements
 
 - Status: accepted
 - Date: 2025-11-22

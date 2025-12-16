@@ -1,5 +1,5 @@
 locals {
-  env = "prod"
+  env = "staging"
 }
 
 module "talos_cluster" {
@@ -10,7 +10,7 @@ module "talos_cluster" {
   cluster_env           = local.env
 
   nodes_count       = length(var.talos_node_configs)
-  nodes_vm_start_id = 200
+  nodes_vm_start_id = 300
   nodes_pve_node    = "srv01"
   nodes_extensions = [
     "siderolabs/qemu-guest-agent",

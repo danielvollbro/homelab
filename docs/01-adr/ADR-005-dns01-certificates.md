@@ -1,4 +1,4 @@
-# ADR-004: TLS Certificates via DNS-01 Challenge
+# ADR-005: TLS Certificates via DNS-01 Challenge
 
 - Status: accepted
 - Date: 2025-12-04

@@ -1,0 +1,17 @@
+---
+apiVersion: cilium.io/v2alpha1
+kind: CiliumL2AnnouncementPolicy
+metadata:
+  name: prod-l2-policy
+  namespace: kube-system
+  annotations:
+    checkov.io/skip1: CKV_K8S_21=False positive. Namespace is defined but Checkov fails to parse SOPS file.
+spec:
+  externalIPs: true
+  loadBalancerIPs: true
+  interfaces:
+    - ^eth0
+  nodeSelector:
+    matchExpressions:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists

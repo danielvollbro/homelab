@@ -14,6 +14,7 @@ checkov_scan:
   script:
     - checkov -d .
       --framework terraform,kubernetes,helm
+      --skip-path gitops/flux/clusters/staging/flux-system
       --skip-path gitops/flux/clusters/prod/flux-system
       -o junitxml | tee checkov_reports.xml
   artifacts:

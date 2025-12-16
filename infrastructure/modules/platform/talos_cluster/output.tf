@@ -1,5 +1,5 @@
 data "talos_client_configuration" "this" {
-  cluster_name         = var.cluster_name
+  cluster_name         = local.cluster_name
   client_configuration = talos_machine_secrets.this.client_configuration
 
   nodes     = [var.network_nodes_configs["0"]["ip"]]
