@@ -6,11 +6,8 @@ resources:
   - wildcard-certificate.yaml
 
 patches:
-  - target:
+  - path: patch-ingress-service.yaml
+    target:
       kind: HelmRelease
       name: ingress-nginx
       namespace: flux-system
-    patch: |-
-      - op: replace
-        path: /spec/values/controller/service/loadBalancerIP
-        value: 10.0.50.210
