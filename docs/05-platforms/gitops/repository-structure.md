@@ -32,41 +32,44 @@ The repository is organized into logical layers separating Infrastructure
 
 ```text
 .
-├── gitops/flux/                  # CLUSTER STATE (Managed by Flux)
+├── gitops/flux/                     # CLUSTER STATE (Managed by Flux)
 │   ├── infrastructure/
-│   │   ├── controllers/          # LAYER 1: Core Software & Network
-│   │   │   ├── base/             # Base HelmReleases (Cilium, Cert-Manager, Ingress)
-│   │   │   └── overlays/prod/    # Prod specific: IP Pools, Ingress Service Patches
+│   │   ├── controllers/             # LAYER 1: Core Software & Network
+│   │   │   ├── base/                # Base HelmReleases (Cilium, Cert-Manager, Ingress)
+│   │   │   ├── overlays/prod/       # Prod specific: IP Pools, Ingress Service Patches
+│   │   │   └── overlays/staging/    # Staging specific: IP Pools, Ingress Service Patches
 │   │   │
-│   │   └── configs/              # LAYER 2: Configuration & CRDs
-│   │       ├── base/             # Base Configs (ClusterIssuer)
-│   │       └── overlays/prod/    # Prod specific: Wildcard Cert, Issuer Patches
+│   │   └── configs/                 # LAYER 2: Configuration & CRDs
+│   │       ├── base/                # Base Configs (ClusterIssuer)
+│   │       ├── overlays/prod/       # Prod specific: Wildcard Cert, Issuer Patches
+│   │       └── overlays/staging/    # staging specific: Wildcard Cert, Issuer Patches
 │   │
-│   └── apps/                     # LAYER 3: Workloads
-│       ├── base/                 # Base Applications (GitLab)
-│       └── overlays/prod/        # Prod specific: Hostnames, Secrets, Resources
+│   └── apps/                        # LAYER 3: Workloads
+│       ├── base/                    # Base Applications (GitLab)
+│       ├── overlays/prod/           # Prod specific: Hostnames, Secrets, Resources
+│       └── overlays/staging/        # Staging specific: Hostnames, Secrets, Resources
 │
-└── infrastructure/               # PROVISIONING STATE (Managed by Terraform)
-    ├── 01-hypervisors/           # LAYER 0: Physical Hardware (Proxmox)
-    │   ├── 01-bootstrap_cluster/ # Common Cluster Configs
-    │   ├── 02-srv01/             # Node 1 Specifics
-    │   └── 03-srv02/             # Node 2 Specifics (GPU Host)
+└── infrastructure/                  # PROVISIONING STATE (Managed by Terraform)
+    ├── 01-hypervisors/              # LAYER 0: Physical Hardware (Proxmox)
+    │   ├── 01-bootstrap_cluster/    # Common Cluster Configs
+    │   ├── 02-srv01/                # Node 1 Specifics
+    │   └── 03-srv02/                # Node 2 Specifics (GPU Host)
     │
-    ├── 02-platforms/             # LAYER 1: Virtual Infrastructure
-    │   ├── k8s-prod/             # Production K8s Cluster (Talos)
-    │   ├── k8s-staging/          # Staging K8s Cluster (Talos)
-    │   ├── streaming-gaming-pc/  # Windows Workstation (PCIe Passthrough)
-    │   └── truenas/              # Storage Appliance
+    ├── 02-platforms/                # LAYER 1: Virtual Infrastructure
+    │   ├── k8s-prod/                # Production K8s Cluster (Talos)
+    │   ├── k8s-staging/             # Staging K8s Cluster (Talos)
+    │   ├── streaming-gaming-pc/     # Windows Workstation (PCIe Passthrough)
+    │   └── truenas/                 # Storage Appliance
     │
-    ├── modules/                  # REUSABLE CODE
-    │   ├── compute/              # Core Primitives
-    │   │   └── proxmox_vm/       # The "Grand Unified" VM resource
-    │   └── platform/             # Domain Logic Wrappers
-    │       ├── talos_node/       # Talos specific logic
-    │       ├── windows/          # Windows/Gaming specific logic
-    │       └── truenas/          # NAS specific logic
+    ├── modules/                     # REUSABLE CODE
+    │   ├── compute/                 # Core Primitives
+    │   │   └── proxmox_vm/          # The "Grand Unified" VM resource
+    │   └── platform/                # Domain Logic Wrappers
+    │       ├── talos_node/          # Talos specific logic
+    │       ├── windows/             # Windows/Gaming specific logic
+    │       └── truenas/             # NAS specific logic
     │
-    └── 03-legacy/               # LAYER 2: Standalone/Legacy Systems
+    └── 03-legacy/                   # LAYER 2: Standalone/Legacy Systems
 ```
 
 ## Dependency & Reconciliation Flow

@@ -1,4 +1,4 @@
-# ADR-003: Secret Management via SOPS
+# ADR-004: Secret Management via SOPS
 
 - Status: accepted
 - Date: 2025-12-04

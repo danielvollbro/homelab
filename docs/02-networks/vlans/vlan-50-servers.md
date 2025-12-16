@@ -26,18 +26,19 @@ To ensure security, strict firewall rules (Layer 3/4) are enforced via the UDM-P
 
 ## IP Address Management (IPAM) Schema
 
-| IP-Range (Host) | Zone/Purpose            | Description                                  | Examples                 |
-| :---            | :---                    | :---                                         | :---                     |
-| **.1**          | Network & Gateway       | Default Gateway (UDM-Pro)                    | gw-vlan50.wollbro.se     |
-| **.2 - .9**     | Net Mgmt / VRRP         | Switches or Redundancy ip (HSRP/VRRP)        | sw-main.wollbro.se       |
-| **.10 - .19**   | Core Infrastructure     | DNS, NTP, AD, Radius, (Critical Services)    | pihole                   |
-| **.20 - .29**   | Storage / SAN           | NAS, iSCSI targets, Backup servers           | truenas, minio           |
-| **.30 - .39**   | Hypervisors (Hosts)     | Proxmox Nodes (Management interface)         | pve-01, pve-02           |
-| **.40 - .49**   | Management VIPs         | Virtual IPs for cluster-management           | ha-cluster-vip           |
-| **.50 - .99**   | App Servers (Static)    | VMs/LXC with static IPs (DBs, Cluster Nodes) | talos-cp-01, sql-01      |
-| **.100 - .199** | DHCP Pool               | Dynamic clients / Temporary machines         |                          |
-| **.200 - .220** | Load Balancers /Ingress | Cilium, Nginx Ingress                        | ingress-nginx            |
-| **.221 - .254** | Reserved                | Infrastructure Spares /Out-of-band           |                          |
+| IP-Range (Host) | Zone/Purpose                    | Description                                  | Examples             |
+| :-------------- | :------------------------------ | :------------------------------------------- | :------------------- |
+| **.1**          | Network & Gateway               | Default Gateway (UDM-Pro)                    | gw-vlan50.wollbro.se |
+| **.2 - .9**     | Net Mgmt / VRRP                 | Switches or Redundancy ip (HSRP/VRRP)        | sw-main.wollbro.se   |
+| **.10 - .19**   | Core Infrastructure             | DNS, NTP, AD, Radius, (Critical Services)    | pihole               |
+| **.20 - .29**   | Storage / SAN                   | NAS, iSCSI targets, Backup servers           | truenas, minio       |
+| **.30 - .39**   | Hypervisors (Hosts)             | Proxmox Nodes (Management interface)         | pve-01, pve-02       |
+| **.40 - .49**   | Management VIPs                 | Virtual IPs for cluster-management           | ha-cluster-vip       |
+| **.50 - .99**   | App Servers (Static)            | VMs/LXC with static IPs (DBs, Cluster Nodes) | talos-cp-01, sql-01  |
+| **.100 - .199** | DHCP Pool                       | Dynamic clients / Temporary machines         |                      |
+| **.200 - .219** | Prod Load Balancers /Ingress    | Cilium, Nginx Ingress                        | ingress-nginx        |
+| **.220 - .239** | Staging Load Balancers /Ingress | Cilium, Nginx Ingress                        | ingress-nginx        |
+| **.240 - .254** | Reserved                        | Infrastructure Spares /Out-of-band           |                      |
 
 ## Naming Convention
 Hostnames follow a standardized format to ensure quick identification of OS and role:

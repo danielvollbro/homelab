@@ -1,4 +1,4 @@
-# ADR-002: iSCSI for Persistent Storage
+# ADR-003: iSCSI for Persistent Storage
 
 - Status: accepted
 - Date: 2025-12-03
