@@ -5,9 +5,9 @@ module "truenas_vm" {
   vm_name      = "truenas"
   vm_node_name = "srv01"
 
-  res_cpu_cores        = 6
+  res_cpu_cores        = 4
   res_cpu_type         = "host"
-  res_dedicated_memory = 32768
+  res_dedicated_memory = 18432
 
   res_hostpci = [
     {
