@@ -25,11 +25,11 @@ Tablets). Devices here have the broadest access privileges.
 
 ## IP Address Management (IPAM) Schema
 
-| IP-Range (Host) | Zone / Purpose         | Description                                  | Examples         |
-| :---            | :---                   | :---                                         | :---             |
-| **.1**          | Network & Gateway      | Default Gateway (UDM-Pro)                    | `gw-vlan10.main` |
-| **.2 - .100**   | Fixed Personal Devices | Desktops, Primary Laptops (Static mappings)  | `admin-pc`       |
-| **.100 - .254** | DHCP Pool              | Mobile devices, Tablets, Wearables           |                  |
+| IP-Range (Host) | Zone / Purpose         | Description                                 | Examples                   |
+| :-------------- | :--------------------- | :------------------------------------------ | :------------------------- |
+| **.1**          | Network & Gateway      | Default Gateway (UDM-Pro)                   | `gw-vlan10.int.vollbro.se` |
+| **.2 - .100**   | Fixed Personal Devices | Desktops, Primary Laptops (Static mappings) | `admin-pc.int.vollbro.se`  |
+| **.100 - .254** | DHCP Pool              | Mobile devices, Tablets, Wearables          |                            |
 
 ## Network Topology Visualization
 

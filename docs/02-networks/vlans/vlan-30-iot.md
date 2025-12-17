@@ -39,12 +39,12 @@ worm-like propagation of malware.
 Since IoT environments are dynamic, the IPAM strategy prioritizes a large DHCP
 pool over static reservations.
 
-| IP-Range (Host) | Zone / Purpose         | Description                                          | Examples                |
-| :---            | :---                   | :---                                                 | :---                    |
-| **.1**          | Network & Gateway      | Default Gateway (UDM-Pro)                            | `gw-vlan30.iot`         |
-| **.2 - .9**     | Infrastructure         | Reserved for IoT-specific Bridges/Hubs (Wired)       | `hue-bridge`, `tradfri` |
-| **.10 - .49**   | Fixed IoT (Static/Res) | Critical IoT devices requiring fixed IPs for polling | `unifi-doorbell`        |
-| **.50 - .254**  | DHCP Pool              | Dynamic assignment for WiFi devices                  | *Google Home, Roborock* |
+| IP-Range (Host) | Zone / Purpose         | Description                                          | Examples                                              |
+| :-------------- | :--------------------- | :--------------------------------------------------- | :---------------------------------------------------- |
+| **.1**          | Network & Gateway      | Default Gateway (UDM-Pro)                            | `gw-vlan30.int.vollbro.se`                            |
+| **.2 - .9**     | Infrastructure         | Reserved for IoT-specific Bridges/Hubs (Wired)       | `hue-bridge.int.vollbro.se`, `tradfri.int.vollbro.se` |
+| **.10 - .49**   | Fixed IoT (Static/Res) | Critical IoT devices requiring fixed IPs for polling | `unifi-doorbell.int.vollbro.se`                       |
+| **.50 - .254**  | DHCP Pool              | Dynamic assignment for WiFi devices                  | *Google Home, Roborock*                               |
 
 ## Network Topology Visualization
 

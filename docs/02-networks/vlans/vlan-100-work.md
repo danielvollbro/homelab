@@ -26,11 +26,11 @@ data.
 
 ## IP Address Management (IPAM) Schema
 
-| IP-Range (Host) | Zone / Purpose     | Description                    | Examples          |
-| :---            | :---               | :---                           | :---              |
-| **.1**          | Network & Gateway  | Default Gateway (UDM-Pro)      | `gw-vlan100.work` |
-| **.10 - .49**   | Fixed Workstations | Docking stations / Desktop PCs | `work-dock-01`    |
-| **.50 - .254**  | DHCP Pool          | Laptops, Test devices          |                   |
+| IP-Range (Host) | Zone / Purpose     | Description                    | Examples                      |
+| :-------------- | :----------------- | :----------------------------- | :---------------------------- |
+| **.1**          | Network & Gateway  | Default Gateway (UDM-Pro)      | `gw-vlan100.int.vollbro.se`   |
+| **.10 - .49**   | Fixed Workstations | Docking stations / Desktop PCs | `work-dock-01.int.vollbro.se` |
+| **.50 - .254**  | DHCP Pool          | Laptops, Test devices          |                               |
 
 ## Network Topology Visualization
 

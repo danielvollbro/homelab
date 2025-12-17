@@ -27,11 +27,11 @@ firewall allows the return traffic).
 
 ## IP Address Management (IPAM) Schema
 
-| IP-Range (Host) | Zone / Purpose          | Description                                  | Examples           |
-| :---            | :---                    | :---                                         | :---               |
-| **.1**          | Network & Gateway       | Default Gateway (UDM-Pro)                    | `gw-vlan35.not`    |
-| **.10 - .49**   | Infrastructure / Bridges| Hubs requiring fixed IPs (e.g., Hue, Lutron) | `hue-bridge-local` |
-| **.50 - .254**  | DHCP Pool               | WiFi Smart Plugs, Tasmota/ESPHome devices    |                    |
+| IP-Range (Host) | Zone / Purpose           | Description                                  | Examples                          |
+| :-------------- | :----------------------- | :------------------------------------------- | :-------------------------------- |
+| **.1**          | Network & Gateway        | Default Gateway (UDM-Pro)                    | `gw-vlan35.int.vollbro.se`        |
+| **.10 - .49**   | Infrastructure / Bridges | Hubs requiring fixed IPs (e.g., Hue, Lutron) | `hue-bridge-local.int.vollbro.se` |
+| **.50 - .254**  | DHCP Pool                | WiFi Smart Plugs, Tasmota/ESPHome devices    |                                   |
 
 ## Network Topology Visualization
 
