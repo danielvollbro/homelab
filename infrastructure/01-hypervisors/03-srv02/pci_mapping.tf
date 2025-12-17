@@ -3,7 +3,7 @@ resource "proxmox_virtual_environment_hardware_mapping_pci" "rtx3070_mapping" {
   map = [
     {
       id           = "10de:2484"
-      iommu_group  = 24
+      iommu_group  = 23
       node         = local.node
       path         = "0000:05:00"
       subsystem_id = "1043:87c1"
