@@ -11,7 +11,7 @@ The UDM-Pro enforces rules based on traffic direction between Zones. In the
 UniFi interface, these are configured under the Firewall section.
 
 | Logical Zone   | UniFi Rule Type / Zone | Description                                                                                         |
-| :---           | :---                   | :---                                                                                                |
+| :------------- | :--------------------- | :-------------------------------------------------------------------------------------------------- |
 | **LAN Zone**   | `LAN IN`               | Traffic entering the gateway from an internal VLAN (e.g., IoT -> Server). **Most rules live here.** |
 | **WAN Zone**   | `WAN OUT` / `Internet` | Traffic leaving the gateway towards the Internet.                                                   |
 | **Local Zone** | `LAN LOCAL`            | Traffic destined for the Gateway itself (SSH, DNS, Web UI).                                         |
@@ -67,7 +67,7 @@ restricted from accessing the internet.
 To maintain clean rules, IP addresses are grouped into logical objects.
 
 | Group Name          | Type               | Description                                                                                                         |
-| :---                | :---               | :---                                                                                                                |
+| :------------------ | :----------------- | :------------------------------------------------------------------------------------------------------------------ |
 | **RFC1918_Subnets** | IPv4 Address Group | Defines all private IP ranges (`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`). Used to define "Internal Traffic". |
 | **Core_Servers**    | IPv4 Address Group | DNS (PiHole), NTP, and Auth servers.                                                                                |
 
