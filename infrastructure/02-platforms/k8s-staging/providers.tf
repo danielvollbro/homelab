@@ -33,7 +33,6 @@ provider "flux" {
     url = "https://github.com/${var.github_username}/${var.github_repo}.git"
     http = {
       username = "git"
-      branch   = "develop"
       password = var.github_token
     }
   }
