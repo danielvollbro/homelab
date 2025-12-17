@@ -24,11 +24,11 @@ to prevent accidental disruption of critical services.
 
 ## IP Address Management (IPAM) Schema
 
-| IP-Range (Host) | Zone / Purpose    | Description                                    | Examples               |
-| :---            | :---              | :---                                           | :---                   |
-| **.1**          | Network & Gateway | Default Gateway (UDM-Pro)                      | `gw-vlan15.kids`       |
-| **.10 - .49**   | Fixed Devices     | Gaming Consoles, School PCs (Static for rules) | `ps5-console`, `pc-01` |
-| **.50 - .254**  | DHCP Pool         | Phones, Tablets, Handhelds                     |                        |
+| IP-Range (Host) | Zone / Purpose    | Description                                    | Examples                                             |
+| :-------------- | :---------------- | :--------------------------------------------- | :--------------------------------------------------- |
+| **.1**          | Network & Gateway | Default Gateway (UDM-Pro)                      | `gw-vlan15.int.vollbro.se`                           |
+| **.10 - .49**   | Fixed Devices     | Gaming Consoles, School PCs (Static for rules) | `ps5-console.int.vollbro.se`, `pc-01.int.vollbro.se` |
+| **.50 - .254**  | DHCP Pool         | Phones, Tablets, Handhelds                     |                                                      |
 
 ## Network Topology Visualization
 

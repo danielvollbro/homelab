@@ -24,13 +24,13 @@ Access Points) and the Controller interfaces.
 
 ## IP Address Management (IPAM) Schema
 
-| IP-Range (Host) | Zone / Purpose    | Description                       | Examples             |
-| :---            | :---              | :---                              | :---                 |
-| **.1**          | Network & Gateway | Default Gateway (UDM-Pro)         | `udm-pro.mgmt`       |
-| **.2 - .9**     | Core Switching    | Aggregation / Core Switches       | `usw-agg.mgmt`       |
-| **.10 - .19**   | Access Switching  | Edge Switches                     | `usw-flex.mgmt`      |
-| **.20 - .49**   | Access Points     | Wireless Access Points            | `u7-pro-max-01.mgmt` |
-| **.50 - .254**  | DHCP Pool         | Provisioning pool for new devices |                      |
+| IP-Range (Host) | Zone / Purpose    | Description                       | Examples                       |
+| :-------------- | :---------------- | :-------------------------------- | :----------------------------- |
+| **.1**          | Network & Gateway | Default Gateway (UDM-Pro)         | `udm-pro.int.vollbro.se`       |
+| **.2 - .9**     | Core Switching    | Aggregation / Core Switches       | `usw-agg.int.vollbro.se`       |
+| **.10 - .19**   | Access Switching  | Edge Switches                     | `usw-flex.int.vollbro.se`      |
+| **.20 - .49**   | Access Points     | Wireless Access Points            | `u7-pro-max-01.int.vollbro.se` |
+| **.50 - .254**  | DHCP Pool         | Provisioning pool for new devices |                                |
 
 ## Network Topology Visualization
 

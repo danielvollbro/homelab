@@ -24,10 +24,10 @@ and strictly isolated.
 
 ## IP Address Management (IPAM) Schema
 
-| IP-Range (Host) | Zone / Purpose    | Description                      | Examples          |
-| :---            | :---              | :---                             | :---              |
-| **.1**          | Network & Gateway | Default Gateway (UDM-Pro)        | `gw-vlan20.guest` |
-| **.2 - .254**   | DHCP Pool         | Dynamic allocation (Short Lease) |                   |
+| IP-Range (Host) | Zone / Purpose    | Description                      | Examples                   |
+| :-------------- | :---------------- | :------------------------------- | :------------------------- |
+| **.1**          | Network & Gateway | Default Gateway (UDM-Pro)        | `gw-vlan20.int.vollbro.se` |
+| **.2 - .254**   | DHCP Pool         | Dynamic allocation (Short Lease) |                            |
 
 ## Network Topology Visualization
 

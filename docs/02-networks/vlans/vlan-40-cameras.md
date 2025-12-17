@@ -30,12 +30,12 @@ the event of a compromise.
 IP assignment here heavily favors static/reserved IPs to ensure the NVR
 maintains consistent connectivity to recording endpoints.
 
-| IP-Range (Host) | Zone / Purpose      | Description                                  | Examples          |
-| :---            | :---                | :---                                         | :---              |
-| **.1**          | Network & Gateway   | Default Gateway (UDM-Pro)                    | `gw-vlan40.cam`   |
-| **.2 - .19**    | Wifi Cameras        | Wireless endpoints (Doorbells, Instant cams) | `g4-doorbell`     |
-| **.20 - .99**   | Wired Cameras (PoE) | Fixed PoE Cameras (Bullets, Domes)           | `g5-pro-driveway` |
-| **.100 - .254** | DHCP Pool           | Spare / Maintenance                          |                   |
+| IP-Range (Host) | Zone / Purpose      | Description                                  | Examples                         |
+| :-------------- | :------------------ | :------------------------------------------- | :------------------------------- |
+| **.1**          | Network & Gateway   | Default Gateway (UDM-Pro)                    | `gw-vlan40.int.vollbro.se`       |
+| **.2 - .19**    | Wifi Cameras        | Wireless endpoints (Doorbells, Instant cams) | `g4-doorbell.int.vollbro.se`     |
+| **.20 - .99**   | Wired Cameras (PoE) | Fixed PoE Cameras (Bullets, Domes)           | `g5-pro-driveway.int.vollbro.se` |
+| **.100 - .254** | DHCP Pool           | Spare / Maintenance                          |                                  |
 
 ## Network Topology Visualization
 
